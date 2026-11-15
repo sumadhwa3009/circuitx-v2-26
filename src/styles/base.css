@@ -1,0 +1,89 @@
+/* CircuitX'26 – Santa Doom. Plain CSS, no frameworks.
+   Palette is taken from the theme video: night indigo, window amber, ember red, emerald energy, steel. Lime is reserved for the logo's X. */
+:root {
+  --night: #04061a; --indigo: #0a1233; --deep: #0d1a45; --frost: #e8eef6; --ink: #0b1022; --steel: #aeb8c7;
+  --emerald: #19e68c; --emerald-d: #0a7a55; --amber: #ffb347; --ember: #ff5a2c; --lime: #a5e91c;
+  --f-display: var(--font-display), "Arial Narrow", sans-serif; --f-body: var(--font-body), system-ui, sans-serif; --f-mono: var(--font-mono), ui-monospace, monospace;
+  --pad: clamp(20px, 5vw, 64px);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--night); color: var(--steel); font: 400 1.0625rem/1.65 var(--f-body); overflow-x: hidden; }
+body.lock { overflow: hidden; }
+img, svg, video, canvas { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3 { margin: 0; font-family: var(--f-display); color: #fff; line-height: .95; letter-spacing: .005em; font-weight: 800; }
+p { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+::selection { background: var(--emerald); color: var(--night); }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip { position: fixed; left: 12px; top: -60px; z-index: 200; background: var(--amber); color: var(--night); padding: 10px 16px; font-weight: 700; }
+.skip:focus { top: 12px; }
+.wrap { width: 100%; max-width: 1180px; margin: 0 auto; padding-inline: var(--pad); }
+.grain { position: absolute; inset: 0; pointer-events: none; opacity: .18; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.snow { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 3; }
+
+/* buttons: chamfered like the logo's C */
+.btn { --cut: 14px; position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 28px; border: 0; cursor: pointer;
+  font: 700 .95rem/1 var(--f-display); letter-spacing: .08em; text-transform: uppercase; color: var(--night);
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut)); transition: transform .2s, filter .2s; }
+.btn span { position: relative; z-index: 1; }
+.btn-go { background: linear-gradient(120deg, var(--emerald), #8bf5c1); }
+.btn-go:hover { transform: translateY(-2px); filter: brightness(1.12) drop-shadow(0 0 14px rgba(25,230,140,.55)); }
+.btn-line { background: rgba(255,255,255,.08); color: #fff; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.45); }
+.btn-line:hover { background: rgba(255,179,71,.18); box-shadow: inset 0 0 0 1.5px var(--amber); }
+.btn-wait { background: rgba(255,179,71,.14); color: var(--amber); box-shadow: inset 0 0 0 1.5px rgba(255,179,71,.55); cursor: default; }
+.btn-sm { min-height: 40px; padding: 0 20px; font-size: .82rem; --cut: 10px; }
+.link { color: var(--emerald); background: linear-gradient(currentColor, currentColor) 0 100%/0 1.5px no-repeat; transition: background-size .3s; }
+.link:hover { background-size: 100% 1.5px; }
+
+/* top bar + menu */
+.bar { position: fixed; inset: 0 0 auto 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; padding: 14px var(--pad); transition: background .3s, padding .3s; }
+.bar-solid { background: rgba(4,6,26,.82); backdrop-filter: blur(10px); padding-block: 10px; box-shadow: 0 1px 0 rgba(25,230,140,.25); }
+.bar-right { display: flex; align-items: center; gap: 14px; }
+.burger { position: relative; width: 48px; height: 48px; border: 0; background: transparent; cursor: pointer; }
+.burger span { position: absolute; left: 10px; right: 10px; height: 3px; background: #fff; transition: transform .35s cubic-bezier(.7,0,.2,1), opacity .2s, background .2s; }
+.burger span:nth-child(1) { top: 16px; right: 18px; } .burger span:nth-child(2) { top: 23px; } .burger span:nth-child(3) { top: 30px; left: 18px; }
+.burger:hover span { background: var(--lime); }
+.burger.is-x span:nth-child(1) { top: 23px; right: 10px; transform: rotate(35deg); background: var(--lime); }
+.burger.is-x span:nth-child(2) { opacity: 0; }
+.burger.is-x span:nth-child(3) { top: 23px; left: 10px; transform: rotate(-35deg); background: var(--lime); }
+.menu { position: fixed; inset: 0; z-index: 55; background: radial-gradient(120% 90% at 80% 20%, #12306a 0, var(--night) 62%); clip-path: circle(0 at calc(100% - 44px) 36px); visibility: hidden; transition: clip-path .75s cubic-bezier(.7,0,.2,1), visibility 0s .75s; overflow: hidden; }
+.menu-open { clip-path: circle(150% at calc(100% - 44px) 36px); visibility: visible; transition: clip-path .85s cubic-bezier(.7,0,.2,1); }
+.menu-links { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; gap: 2px; height: 100%; padding: 90px var(--pad) 120px; }
+.menu-links a { width: fit-content; font: 800 clamp(2rem, 6.2vw, 4.4rem)/1.04 var(--f-display); text-transform: uppercase; color: #fff; opacity: 0; transform: translateX(-30px); transition: opacity .5s, transform .5s, color .2s; position: relative; }
+.menu-open .menu-links a { opacity: 1; transform: none; }
+.menu-links a::after { content: ""; position: absolute; left: 0; bottom: 2px; height: 3px; width: 0; background: linear-gradient(90deg, var(--emerald), var(--amber)); transition: width .35s; }
+.menu-links a:hover, .menu-links a.on { color: var(--emerald); } .menu-links a:hover::after, .menu-links a.on::after { width: 100%; }
+.menu-tree { position: absolute; right: 4vw; top: 8vh; height: 74vh; width: auto; opacity: .85; z-index: 1; }
+.menu-village { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 30vh; z-index: 1; }
+
+/* rail */
+.rail { position: fixed; left: 22px; top: 50%; transform: translateY(-50%); z-index: 40; height: min(60vh, 460px); display: none; }
+@media (min-width: 1180px) { .rail { display: block; } }
+.rail-line { position: absolute; left: 5px; top: 0; bottom: 0; width: 2px; background: rgba(255,255,255,.14); }
+.rail-fill { position: absolute; inset: 0; background: linear-gradient(var(--emerald), var(--amber)); transform-origin: top; transform: scaleY(0); }
+.rail ul { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+.rail a { position: relative; display: flex; align-items: center; height: 12px; }
+.rail-node { width: 12px; height: 12px; border-radius: 50%; background: var(--night); border: 2px solid rgba(255,255,255,.4); transition: .3s; }
+.rail li.done .rail-node { border-color: var(--emerald); background: var(--emerald); }
+.rail li.on .rail-node { border-color: var(--amber); background: var(--amber); box-shadow: 0 0 0 5px rgba(255,179,71,.25), 0 0 16px var(--amber); }
+.rail-tip { position: absolute; left: 26px; font: 600 .72rem/1 var(--f-mono); color: #fff; background: rgba(4,6,26,.85); padding: 5px 8px; opacity: 0; transform: translateX(-6px); transition: .25s; pointer-events: none; white-space: nowrap; }
+.rail a:hover .rail-tip, .rail li.on .rail-tip { opacity: 1; transform: none; }
+
+/* footer */
+.foot { position: relative; background: #030516; margin-top: 0; overflow: hidden; }
+.foot-village { width: 100%; height: clamp(120px, 20vw, 220px); margin-bottom: -2px; }
+.foot-body { position: relative; display: grid; gap: 40px; padding-block: 48px; grid-template-columns: 1.3fr 1fr 1fr; background: #030516; }
+.foot-body h2 { font-size: 1.25rem; margin-bottom: 14px; letter-spacing: .06em; text-transform: uppercase; }
+.foot-body li { margin-bottom: 8px; } .foot-body a:hover { color: var(--emerald); }
+.foot-desc { margin: 18px 0 12px; max-width: 34ch; }
+.foot-copy { text-align: center; padding: 18px; font-size: .85rem; border-top: 1px solid rgba(255,255,255,.08); background: #030516; }
+@media (max-width: 800px) { .foot-body { grid-template-columns: 1fr; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+}
