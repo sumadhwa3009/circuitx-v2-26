@@ -13,6 +13,8 @@ import { RegisterButton } from "@/components/RegisterButton";
 import { event } from "@/config/event";
 import { faqs } from "@/data/faqs";
 import { announcements } from "@/data/announcements";
+import { Prizes } from "@/components/Prizes";
+import { PrizeBackdrop, Gift } from "@/components/PrizeArt";
 import { Clock, Users, Layers, GraduationCap, FilePenLine, Compass, ShieldQuestion, MapPin } from "lucide-react";
 
 const pillars = [
@@ -75,6 +77,17 @@ export default function Home() {
 
       <section className="sec sec-clock" id="countdown" data-rail="Countdown">
         <div className="wrap clock-wrap"><Countdown /><BuildTimer /></div>
+      </section>
+
+      <section className="sec sec-prizes" id="prizes" data-rail="Prizes">
+        <PrizeBackdrop />
+        <Gift className="gift gift-l" />
+        <Gift className="gift gift-r" />
+        <div className="wrap">
+          <h2 className="h2">Prize pool</h2>
+          <p className="lead">Build for your domain. Win in your domain.</p>
+          <Prizes />
+        </div>
       </section>
 
       <section className="sec sec-frost" id="info" data-rail="Info">

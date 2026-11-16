@@ -63,3 +63,16 @@ export const footerNav = [
   { href: "/announcements", label: "Announcements" },
   { href: "/contact", label: "Contact" },
 ];
+
+export const prizes = {
+  total: 40000,
+  currency: "₹",
+  tiers: [
+    { id: "winner", label: "Winners", note: "1st prize in each domain", amount: 12000 },
+    { id: "runner", label: "Runners-up", note: "2nd prize in each domain", amount: 8000 },
+  ],
+  domains: [
+    { id: "pes", name: "IEEE PES", full: "Power & Energy Systems" },
+    { id: "cas", name: "IEEE CAS", full: "Circuits & Systems" },
+  ],
+} as const;

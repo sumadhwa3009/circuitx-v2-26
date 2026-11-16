@@ -1,4 +1,4 @@
-# CircuitX'26 – Santa Doom (frontend)
+# CircuitX'26 (frontend)
 
 Next.js 14 (App Router) + TypeScript + plain CSS (src/styles). No backend.
 
