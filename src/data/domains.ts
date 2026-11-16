@@ -1,23 +1,33 @@
+
 export const domains = [
   {
     id: "pes",
     society: "IEEE PES",
     title: "Power & Energy Systems",
-    summary: "Make the way we generate, move and use energy smarter, cleaner and more resilient.",
-    areas: ["Smart grids", "Power systems", "Renewable energy", "Energy management", "Electrical infrastructure", "Sustainability"],
+    summary:
+      "Make the way we generate, move and use energy smarter, cleaner and more resilient.",
+    areas: [
+      "Smart grids",
+      "Power systems",
+      "Renewable energy",
+      "Energy management",
+      "Electrical infrastructure",
+      "Sustainability",
+    ],
   },
   {
     id: "cas",
     society: "IEEE CAS",
     title: "Circuits & Systems",
-    summary: "Design the hardware and signal chains that sense, process and act.",
-    areas: ["Embedded systems", "Electronic circuits", "Signal processing", "Intelligent hardware", "Automation", "System design"],
-  },
-  {
-    id: "open",
-    society: "Open",
-    title: "Open Innovation",
-    summary: "Anything that doesn't fit a box, across fields.",
-    areas: ["Artificial intelligence", "Robotics", "Healthcare technology", "Smart automation", "Interdisciplinary innovation"],
+    summary:
+      "Design the hardware and signal chains that sense, process and act.",
+    areas: [
+      "Embedded systems",
+      "Electronic circuits",
+      "Signal processing",
+      "Intelligent hardware",
+      "Automation",
+      "System design",
+    ],
   },
 ] as const;

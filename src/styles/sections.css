@@ -345,10 +345,11 @@
 /* domains */
 .chips {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 420px));
+  justify-content: center;
+  align-items: start;
   gap: 26px;
   margin-top: 60px;
-  align-items: start;
 }
 .chip {
   --c: var(--amber);
@@ -374,9 +375,10 @@
     0 100%
   );
 }
+
 .chip-cas {
   --c: var(--emerald);
-  margin-top: 46px;
+  margin-top: 0;
   clip-path: polygon(34px 0, 100% 0, 100% 100%, 0 100%, 0 34px);
 }
 .chip-open {
@@ -1636,15 +1638,15 @@
 }
 
 .org-logo {
-  width: 105px;
-  height: 70px;
+  width: 110px;
+  height: auto;
+  max-height: 75px;
   object-fit: contain;
   flex-shrink: 0;
   background: #fff;
   border-radius: 4px;
   padding: 5px;
 }
-
 .orgs li span {
   min-width: 0;
 }
@@ -1668,12 +1670,12 @@
 
 .org-affiliation img {
   width: 65px;
-  height: 55px;
+  height: auto;
+  max-height: 55px;
   object-fit: contain;
   background: #fff;
   border-radius: 4px;
   padding: 4px;
-  flex-shrink: 0;
 }
 
 .org-affiliation span {

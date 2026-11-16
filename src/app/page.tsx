@@ -37,7 +37,7 @@ const pillars = [
   {
     Icon: Compass,
     t: "Freedom to innovate",
-    d: "Three broad domains. Your idea, your approach, your prototype.",
+    d: "Two broad domains. Your idea, your approach, your prototype.",
   },
   {
     Icon: ShieldQuestion,
@@ -52,7 +52,7 @@ const info = [
     k: `${event.team.min} to ${event.team.max}`,
     v: "Members per team",
   },
-  { Icon: Layers, k: "3 domains", v: "PES, CAS and Open Innovation" },
+  { Icon: Layers, k: "2 domains", v: "PES and CAS " },
   {
     Icon: GraduationCap,
     k: "BMSIT&M only",
