@@ -120,14 +120,228 @@ export function Burst({ className = "" }: { className?: string }) {
   );
 }
 
+
 export function Sleigh({ className = "" }: { className?: string }) {
+  const deer = Array.from({ length: 8 }, (_, i) => ({
+    id: i,
+    x: 18 + Math.floor(i / 2) * 43,
+    y: i % 2 === 0 ? 47 : 112,
+  }));
+
   return (
-    <svg className={className} viewBox="0 0 120 70" aria-hidden="true">
-      <path d="M8 52 C8 62 30 64 54 62 H104 C114 62 116 54 108 52" stroke="#ffb347" strokeWidth="4" fill="none" strokeLinecap="round" />
-      <path d="M22 50 C22 30 34 22 52 22 H92 C92 40 88 50 76 52Z" fill="#7a1f12" stroke="#ffb347" strokeWidth="3" />
-      <path d="M52 22 C52 10 62 6 74 8" stroke="#ffb347" strokeWidth="3" fill="none" strokeLinecap="round" />
-      <circle cx="60" cy="14" r="6" fill="#19e68c" />
-      <path d="M30 52 V62 M64 52 V62 M96 52 V62" stroke="#ffb347" strokeWidth="3" />
+    <svg
+      className={`sleigh-art ${className}`}
+      viewBox="0 0 390 180"
+      role="img"
+      aria-label="Santa flying in a sleigh pulled by eight reindeer"
+    >
+      <defs>
+        <linearGradient id="deerCoat" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#e7bd83" />
+          <stop offset="100%" stopColor="#81502f" />
+        </linearGradient>
+
+        <linearGradient id="sleighGold" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#fff2a8" />
+          <stop offset="50%" stopColor="#ffb347" />
+          <stop offset="100%" stopColor="#b75b19" />
+        </linearGradient>
+
+        <linearGradient id="sleighRed" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#ef5541" />
+          <stop offset="100%" stopColor="#71151e" />
+        </linearGradient>
+
+        <filter id="sleighGlow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="4" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+
+      {/* Magical particles */}
+      <g className="sleigh-sparkles" fill="#19e68c" filter="url(#sleighGlow)">
+        <circle cx="15" cy="25" r="2.5" />
+        <circle cx="70" cy="12" r="2" />
+        <circle cx="180" cy="15" r="2.5" />
+        <circle cx="330" cy="145" r="2" />
+        <path d="M180 140l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" />
+      </g>
+
+      {/* Eight reindeer */}
+      <g className="reindeer-team">
+        {deer.map((d) => (
+          <g
+            key={d.id}
+            className="reindeer"
+            transform={`translate(${d.x} ${d.y})`}
+          >
+            {/* Antlers */}
+            <g
+              className="deer-antlers"
+              fill="none"
+              stroke="#e8d2a5"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+            >
+              <path d="M-13 -12 Q-24 -22 -20 -34 M-20 -27 L-29 -32 M-20 -24 L-12 -34" />
+              <path d="M-7 -13 Q-13 -23 -9 -31 M-9 -25 L-17 -30" />
+            </g>
+
+            {/* Head */}
+            <path
+              d="M-10 -9 Q-22 -17 -27 -10 L-34 -2 L-28 7 Q-17 8 -8 2Z"
+              fill="url(#deerCoat)"
+              stroke="#e7c18a"
+              strokeWidth="1.5"
+            />
+
+            <circle cx="-29" cy="-5" r="1.8" fill="#fff0c8" />
+
+            {d.id === 0 ? (
+              <circle
+                cx="-35"
+                cy="-1"
+                r="4"
+                fill="#ff4b38"
+                filter="url(#sleighGlow)"
+              />
+            ) : (
+              <circle cx="-35" cy="-1" r="2" fill="#493020" />
+            )}
+
+            {/* Body */}
+            <path
+              d="M-12 -8 Q0 -20 18 -11 Q26 -5 19 7 Q7 14 -10 7Z"
+              fill="url(#deerCoat)"
+              stroke="#e7c18a"
+              strokeWidth="1.6"
+            />
+
+            <path
+              d="M18 -8 Q28 -15 31 -9"
+              fill="none"
+              stroke="#e7c18a"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+
+            {/* Galloping legs */}
+            <g
+              className="deer-legs"
+              fill="none"
+              stroke="#d7b58d"
+              strokeWidth="2.8"
+              strokeLinecap="round"
+            >
+              <path d="M-7 7 L-12 20 L-7 25" />
+              <path d="M2 9 L7 20 L4 26" />
+              <path d="M12 8 L17 19 L13 24" />
+              <path d="M18 6 L25 16 L22 23" />
+            </g>
+
+            {/* Harness */}
+            <path
+              d="M-27 1 Q0 -2 22 1"
+              fill="none"
+              stroke="#ffcf70"
+              strokeWidth="1.5"
+            />
+          </g>
+        ))}
+      </g>
+
+      {/* Connected reins */}
+      <g
+        className="sleigh-harness"
+        fill="none"
+        stroke="#ffb347"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      >
+        <path d="M8 45 Q150 15 270 65" />
+        <path d="M8 115 Q150 150 270 100" />
+        <path d="M65 45 L270 65 M65 115 L270 100" />
+        <path d="M110 45 L270 65 M110 115 L270 100" />
+        <path d="M155 45 L270 65 M155 115 L270 100" />
+      </g>
+
+      {/* Santa and sleigh */}
+      <g className="sleigh-body" filter="url(#sleighGlow)">
+        <path
+          d="M258 119 Q290 145 350 128 Q373 120 366 110"
+          fill="none"
+          stroke="url(#sleighGold)"
+          strokeWidth="5"
+          strokeLinecap="round"
+        />
+
+        <path
+          d="M270 105 Q276 70 300 68 L350 73 Q370 90 357 116 Q320 130 282 115Z"
+          fill="url(#sleighRed)"
+          stroke="url(#sleighGold)"
+          strokeWidth="3"
+        />
+
+        <path
+          d="M278 94 Q315 108 358 96"
+          fill="none"
+          stroke="#ffe49a"
+          strokeWidth="3"
+        />
+
+        {/* Santa's coat */}
+        <path
+          d="M296 82 Q305 60 330 68 L345 94 L310 103Z"
+          fill="#a71924"
+          stroke="#ffcf70"
+          strokeWidth="2"
+        />
+
+        {/* Face */}
+        <circle cx="322" cy="52" r="13" fill="#e9b58e" />
+
+        {/* Hat */}
+        <path
+          d="M308 48 Q302 24 325 20 Q348 22 338 51 Q327 39 308 48Z"
+          fill="#c51e2b"
+          stroke="#fff0df"
+          strokeWidth="2"
+        />
+
+        <path
+          d="M307 48 Q322 56 338 48"
+          fill="none"
+          stroke="#fff"
+          strokeWidth="6"
+        />
+
+        <circle cx="341" cy="25" r="5" fill="#fff" />
+
+        {/* Beard */}
+        <path
+          d="M310 59 Q321 75 337 58 Q340 80 322 83 Q306 78 310 59Z"
+          fill="#f5f0e7"
+          stroke="#d5d9df"
+          strokeWidth="1"
+        />
+
+        <circle cx="280" cy="91" r="4" fill="#19e68c" />
+      </g>
+
+      {/* Emerald flight trail */}
+      <path
+        className="sleigh-magic-trail"
+        d="M280 145 Q210 173 130 148 Q65 132 12 158"
+        fill="none"
+        stroke="#19e68c"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeDasharray="5 9"
+        filter="url(#sleighGlow)"
+      />
     </svg>
   );
 }
