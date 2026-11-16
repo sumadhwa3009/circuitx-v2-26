@@ -1626,3 +1626,73 @@
     opacity: 0;
   }
 }
+
+
+/* Organiser logos */
+.orgs li {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.org-logo {
+  width: 105px;
+  height: 70px;
+  object-fit: contain;
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.orgs li span {
+  min-width: 0;
+}
+
+.org-affiliations {
+  display: flex;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.org-affiliation {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.07);
+  border-left: 3px solid var(--emerald);
+}
+
+.org-affiliation img {
+  width: 65px;
+  height: 55px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 4px;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.org-affiliation span {
+  color: var(--frost);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .orgs li {
+    gap: 12px;
+  }
+
+  .org-logo {
+    width: 80px;
+    height: 60px;
+  }
+
+  .org-affiliations {
+    flex-wrap: wrap;
+  }
+}
