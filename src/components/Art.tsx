@@ -65,8 +65,10 @@ export function CircuitTree({ className = "" }: { className?: string }) {
         <path pathLength="1" className="draw" style={{ animationDelay: "1.2s" }} d="M200 590 V598 M200 598 H60 M200 598 H340" />
       </g>
       {nodes.map((n, i) => <circle key={i} className={`node n${n.c}`} style={{ animationDelay: `${n.d}s` }} cx={n.x} cy={n.y} r="5" />)}
-      <g className="star" transform="translate(200 108)">
-        <path d="M0 -40 L9 -9 L40 0 L9 9 L0 40 L-9 9 L-40 0 L-9 -9Z" />
+      <g transform="translate(200 108)">
+        <g className="star">
+          <path d="M0 -40 L9 -9 L40 0 L9 9 L0 40 L-9 9 L-40 0 L-9 -9Z" />
+        </g>
       </g>
     </svg>
   );

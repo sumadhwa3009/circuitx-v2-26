@@ -27,9 +27,9 @@ export function Hero() {
       <Snow />
       <div className="hero-body wrap">
         <p className="hero-tag"><span className="dot" />16-hour overnight hackathon</p>
-        <h1 className="hero-title" aria-label="Santa Doom">
-          <span className="metal" data-t="SANTA">SANTA</span>
-          <span className="metal doom" data-t="DOOM">DOOM</span>
+        <h1 className="hero-title" aria-label="CircuitX'26 – Santa Doom">
+          <Image src="/brand/circuitx-logo.png" alt="" width={2172} height={724} priority className="hero-logo glitch" />
+          <span className="metal year" data-t="'26">&apos;26</span>
         </h1>
         <p className="hero-line">BUILD THE UNKNOWN.</p>
         <p className="hero-sub">Choose your own problem. Build your own solution. Then, halfway through the night, the rules change.</p>
@@ -37,7 +37,7 @@ export function Hero() {
         <dl className="hero-facts">
           <div><dt>When</dt><dd>{event.dates.label}</dd></div>
           <div><dt>Where</dt><dd>{event.institutionShort}</dd></div>
-          <div><dt>By</dt><dd>IEEE PES + IEEE CAS</dd></div>
+          <div><dt>By</dt><dd>IEEE PES x IEEE CAS</dd></div>
         </dl>
       </div>
       <Village className="hero-village" />

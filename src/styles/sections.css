@@ -218,3 +218,20 @@
 
 .x404 { width: 120px; margin: 0 auto 24px; }
 .logo { display: inline-block; line-height: 0; }
+
+/* hero title: CircuitX'26 on one line */
+.hero-title { --lw: clamp(300px, 56vw, 720px); flex-direction: row; align-items: center; flex-wrap: nowrap; gap: calc(var(--lw) * .02); font-size: clamp(3.4rem, 11vw, 8.5rem); line-height: 1; margin-top: 10px; }
+.hero-logo { width: var(--lw); height: auto; max-width: none; flex: none;
+  margin: calc(var(--lw) * -.1) calc(var(--lw) * -.17) calc(var(--lw) * -.095) calc(var(--lw) * -.205);
+  filter: drop-shadow(0 0 22px rgba(25,230,140,.35)) drop-shadow(0 6px 0 rgba(0,0,0,.35)); }
+.year { font-family: var(--f-display); font-weight: 900; font-style: italic; padding: 0 .18em .06em .04em;}
+.hero-theme { margin-top: 14px; font: 800 clamp(1.5rem, 4vw, 2.6rem)/1 var(--f-display); letter-spacing: .38em; color: var(--emerald); text-shadow: 0 0 22px rgba(25,230,140,.6); }
+@media (max-width: 560px) { .hero-title { --lw: min(84vw, 460px); font-size: clamp(2.6rem, 13vw, 4rem); } }
+
+/* menu fixes */
+.menu-links { gap: 0; padding: 96px var(--pad) 40px; overflow-y: auto; }
+.menu-links a { font-size: clamp(1.9rem, 7.4vh, 4.2rem); line-height: 1.08; }
+.menu-village { height: 24vh; }
+.menu-village .v-snow { fill: #162a63; }
+.menu-tree { top: 14vh; height: 66vh; }
+@media (max-width: 700px) { .menu-tree { opacity: .35; right: -10vw; } }
