@@ -30,7 +30,7 @@ export const event = {
     hours: 16,
   },
   team: { min: 2, max: 4 },
-  eligibility: "Students of BMS Institute of Technology and Management only. All branches and all academic years.",
+  eligibility: "Open to students from all colleges and universities, across all academic branches and academic years.",
   registration: {
     status: "coming-soon" as RegistrationStatus,
     unstopUrl: "", // single source for every registration button

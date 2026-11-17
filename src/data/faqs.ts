@@ -16,12 +16,12 @@ export const faqs: Faq[] = [
     featured: true,
   },
   {
-    q: "What are the three domains?",
+    q: "What are the Two domains?",
     a: "IEEE PES (Power & Energy Systems), IEEE CAS (Circuits & Systems) and Open Innovation.",
   },
   {
     q: "Who is eligible?",
-    a: "Students of BMS Institute of Technology and Management only, from all branches and all academic years.",
+    a: "CircuitX'26 is open to students from all colleges and universities, across all branches and academic years.",
   },
   {
     q: "What is the team size?",

@@ -56,7 +56,7 @@ const info = [
   {
     Icon: GraduationCap,
     k: "Open to All",
-    v: "All branches, all academic years",
+    v:  "All colleges, branches and academic years",
   },
 ];
 
