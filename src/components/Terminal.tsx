@@ -1,13 +1,14 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-const BOOT = ["SANTA DOOM TRANSMISSION v26.12", "linking to the north pole.......... ok", "decrypting channel.................. ok", "type 'help' to begin."];
+const BOOT = ["CircuitX v26.12", "linking to the north pole.......... ok", "decrypting channel.................. ok", "type 'help' to begin."];
 const CMD: Record<string, string> = {
   help: "commands: help, about, domains, status, x, clear",
   about: "CircuitX'26 – A 16-hour innovation experience.",
-  domains: "PES | CAS | OPEN INNOVATION",
+  domains: "PES | CAS",
   status: "ALL SYSTEMS OPERATIONAL.",
   x: "ACCESS DENIED. THE UNKNOWN REMAINS CLASSIFIED.",
+  prizes: "1st: ₹12,000 | 2nd: ₹8,000",
 };
 
 export function Terminal() {
@@ -31,7 +32,7 @@ export function Terminal() {
   }
   return (
     <div className="term">
-      <div className="term-bar"><i /><i /><i /><span>santa-doom://channel</span></div>
+      <div className="term-bar"><i /><i /><i /><span>CircuitX://channel</span></div>
       <div className="term-out" ref={box} aria-live="polite">{lines.map((l, i) => <p key={i}>{l}</p>)}</div>
       <form onSubmit={run} className="term-in">
         <label htmlFor="term" className="sr">Terminal command</label><span aria-hidden="true">&gt;</span>

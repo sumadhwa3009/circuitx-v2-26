@@ -9,10 +9,9 @@ export default function About() {
     <section className="sec"><div className="wrap about">
       <div className="about-art"><CircuitTree /></div>
       <div className="prose">
-        <div><h2>The philosophy</h2><p>Most hackathons hand teams a problem. Here you get three broad domains and decide for yourselves what is worth solving, how to solve it and what to build.</p></div>
+        <div><h2>The philosophy</h2><p>Most hackathons hand teams a problem. Here you get two broad domains and decide for yourselves what is worth solving, how to solve it and what to build.</p></div>
         <div><h2>Why no problem statements</h2><p>Finding the right problem is half of engineering. We want teams to practise that, not skip it.</p></div>
         <div><h2>The X factor</h2><p>About halfway through the 16-hour build, the committee reveals X. Every team must integrate it into the project it has already started. What X is stays secret until then.</p></div>
-        <div><h2>The Santa Doom theme</h2><p>A snowbound village at night, a sleigh on the square, and a masked Santa wrapped in emerald energy. Dark, cinematic and a little unsettling, like the hackathon itself.</p></div>
         <div><h2>Organised by</h2><p>{event.organisers.map((o) => o.name).join(" and ")}, at {event.institution}.</p></div>
       </div>
     </div></section>

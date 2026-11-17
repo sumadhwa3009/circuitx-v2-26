@@ -4,7 +4,7 @@ import { DomainGrid } from "@/components/Domains";
 export const metadata: Metadata = { title: "Domains", description: "IEEE PES, IEEE CAS and Open Innovation: the three domains of CircuitX'26." };
 export default function Domains() {
   return (<>
-    <PageBanner art="sleigh" title="Three domains. Your problem." intro="The areas below are ideas to explore, not assigned problems. You have complete freedom to choose what to solve." />
+    <PageBanner art="sleigh" title="Two domains. Your problem." intro="The areas below are ideas to explore, not assigned problems. You have complete freedom to choose what to solve." />
     <section className="sec sec-deep"><div className="wrap"><DomainGrid detailed /></div></section>
   </>);
 }

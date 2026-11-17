@@ -711,7 +711,7 @@
 }
 .clock-wrap {
   display: grid;
-  grid-template-columns: 1.7fr 1fr;
+  grid-template-columns: 1fr;
   gap: 40px;
   align-items: end;
 }
@@ -1639,7 +1639,7 @@
 
 .org-logo {
   width: 110px;
-  height: auto;
+  height: 75px;
   max-height: 75px;
   object-fit: contain;
   flex-shrink: 0;
@@ -1698,3 +1698,12 @@
     flex-wrap: wrap;
   }
 }
+
+/* navbar logo: larger, with transparent padding trimmed */
+.bar .logo { margin: -22px -40px -22px -46px; }
+@media (max-width: 600px) {
+  .bar .logo img { height: 58px !important; }
+  .bar .logo { margin: -16px -30px -16px -34px; }
+}
+
+.foot .logo { margin: -24px -45px -24px -52px; }

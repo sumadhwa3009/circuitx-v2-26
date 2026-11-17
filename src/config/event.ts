@@ -9,18 +9,18 @@ export const event = {
   theme: "Santa Doom",
   tagline: "Build the unknown.",
   description:
-    "A 16-hour overnight hackathon with no predefined problem statements, and one secret challenge waiting halfway through.",
+    "A 16-hour overnight hackathon with two broad domains, and one secret challenge waiting halfway through.",
   institution: "BMS Institute of Technology and Management",
   institutionShort: "BMSIT&M",
   organisers: [
-    { id: "pes", name: "IEEE Power & Energy Society", short: "IEEE PES", logo: null as string | null },
-    { id: "cas", name: "IEEE Circuits and Systems Society", short: "IEEE CAS", logo: null as string | null },
-  ],
+  { id: "pes", name: "IEEE Power & Energy Society", short: "IEEE PES", logo: null as string | null, email: "pes-email@example.com" as string },
+  { id: "cas", name: "IEEE Circuits and Systems Society", short: "IEEE CAS", logo: null as string | null, email: "cas-email@example.com" as string },
+],
   venue: {
     name: "BS Narayana Auditorium",
     block: "Sir C V Raman Block",
     institution: "BMS Institute of Technology and Management",
-    mapUrl: null as string | null, // add only once the exact location is verified
+    mapUrl: "https://maps.app.goo.gl/57R115GsTYzuPuXUA"
   },
   timezone: "Asia/Kolkata",
   dates: { start: "2026-12-19", end: "2026-12-20", label: "19–20 December 2026" },
@@ -37,8 +37,13 @@ export const event = {
     pptTemplateUrl: "", // download link appears only when this is set
     deadline: null as string | null,
   },
-  social: { instagram: "", linkedin: "", x: "", youtube: "" },
-  contact: { email: "", committee: "", persons: [] as { name: string; role: string; phone?: string }[] },
+  social: [
+  { id: "pes-instagram", label: "IEEE PES Instagram", url: "" },
+  { id: "cas-instagram", label: "IEEE CAS Instagram", url: "" },
+  { id: "pes-linkedin", label: "IEEE PES LinkedIn", url: "" },
+  { id: "cas-linkedin", label: "IEEE CAS LinkedIn", url: "" },
+] as { id: string; label: string; url: string }[],
+  contact: { email: "ieeepes.bmsit@gmail.com", committee: "IEEE PES x IEEE CAS", persons: [{ name: "Sumadhwa Rao", role: "Event Coordinator", phone: "+91 9876543210" }] as { name: string; role: string; phone?: string }[] },
 } as const;
 
 export const registrationCopy: Record<RegistrationStatus, { label: string; helper: string; enabled: boolean }> = {

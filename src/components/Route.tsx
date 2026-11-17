@@ -59,9 +59,9 @@ export function Route() {
       const prog = reduce
         ? 1
         : Math.min(
-            1,
-            Math.max(0, (window.innerHeight * 0.6 - r.top) / r.height),
-          );
+          1,
+          Math.max(0, (window.innerHeight * 0.6 - r.top) / r.height),
+        );
 
       const distance = prog * len;
 
@@ -96,9 +96,10 @@ export function Route() {
       // Rotate around the sleigh body centre
       s.style.transformOrigin = `${sleighCenterX}px ${sleighCenterY}px`;
 
-      // Reveal the green line up to Santa
-      p.style.strokeDasharray = `${distance} ${len}`;
-      p.style.strokeDashoffset = "0";
+      // Reveal the green line exactly up to Santa
+      // Reveal green route using normalized scroll progress
+      p.style.strokeDasharray = "1 1";
+      p.style.strokeDashoffset = `${1 - prog}`;
 
       // Rotate Santa along the route
       const next = p.getPointAtLength(Math.min(len, distance + 2));
@@ -139,14 +140,14 @@ export function Route() {
           <path
             className="route-ghost"
             d="M60 0 C 110 90 10 160 60 250 S 110 410 60 500 S 10 660 60 750 S 110 910 60 1000"
-            vectorEffect="non-scaling-stroke"
+            pathLength={1}
           />
 
           <path
             ref={path}
             className="route-live"
             d="M60 0 C 110 90 10 160 60 250 S 110 410 60 500 S 10 660 60 750 S 110 910 60 1000"
-            vectorEffect="non-scaling-stroke"
+            pathLength={1}
           />
         </svg>
 

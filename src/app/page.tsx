@@ -5,7 +5,7 @@ import { CircuitTree, Burst, Mask } from "@/components/Art";
 import { DomainGrid, DomainsNote } from "@/components/Domains";
 import { XFile } from "@/components/XFile";
 import { Route } from "@/components/Route";
-import { Countdown, BuildTimer } from "@/components/Countdown";
+import { Countdown } from "@/components/Countdown";
 import { FaqList } from "@/components/FaqList";
 import { AnnouncementCard } from "@/components/AnnouncementCard";
 import { Terminal } from "@/components/Terminal";
@@ -135,7 +135,6 @@ export default function Home() {
       <section className="sec sec-clock" id="countdown" data-rail="Countdown">
         <div className="wrap clock-wrap">
           <Countdown />
-          <BuildTimer />
         </div>
       </section>
 

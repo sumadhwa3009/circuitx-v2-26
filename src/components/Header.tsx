@@ -27,7 +27,7 @@ export function Header() {
   return (
     <>
       <header className={`bar ${solid ? "bar-solid" : ""} ${open ? "bar-open" : ""}`}>
-        <Logo height={28} priority />
+        <Logo height={99} priority />
         <div className="bar-right">
           <RegisterButton small />
           <button className={`burger ${open ? "is-x" : ""}`} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="menu" onClick={() => setOpen(!open)}>
