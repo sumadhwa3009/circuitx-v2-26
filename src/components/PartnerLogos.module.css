@@ -43,7 +43,7 @@
 
 .image {
   display: block;
-  width: auto;
+  width: 180px;
   max-width: 180px;
   height: 85px;
   object-fit: contain;
@@ -66,6 +66,7 @@
 
   .image {
     height: 72px;
+    min-width: 180px;
   }
 }
     
