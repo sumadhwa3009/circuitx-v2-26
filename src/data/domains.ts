@@ -17,7 +17,7 @@ export const domains = [
   },
   {
     id: "cas",
-    society: "IEEE CAS",
+    society: "IEEE CASS",
     title: "Circuits & Systems",
     summary:
       "Design the hardware and signal chains that sense, process and act.",

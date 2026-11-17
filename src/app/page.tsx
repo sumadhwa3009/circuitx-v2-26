@@ -52,11 +52,11 @@ const info = [
     k: `${event.team.min} to ${event.team.max}`,
     v: "Members per team",
   },
-  { Icon: Layers, k: "2 domains", v: "PES and CAS " },
+  { Icon: Layers, k: "2 domains", v: "PES and CASS " },
   {
     Icon: GraduationCap,
     k: "Open to All",
-    v: "All branches, all academic years",
+    v:  "All colleges, branches and academic years",
   },
 ];
 

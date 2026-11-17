@@ -9,7 +9,7 @@ export function Prizes() {
       <div className="pool">
         <p className="pool-label">Total prize pool</p>
         <p className="pool-amount">{fmt(prizes.total)}</p>
-        <p className="pool-note">Split across the IEEE PES and IEEE CAS domains.</p>
+        <p className="pool-note">Split across the IEEE PES and IEEE CASS domains.</p>
       </div>
       <div className="prize-grid">
         {prizes.domains.map((d) => (

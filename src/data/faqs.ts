@@ -3,7 +3,7 @@ export type Faq = { q: string; a: string; featured?: boolean };
 export const faqs: Faq[] = [
   {
     q: "What is CircuitX'26?",
-    a: "A 16-hour overnight hackathon organised by IEEE PES and IEEE CAS at BMS Institute of Technology and Management, on 19–20 December 2026.",
+    a: "A 16-hour overnight hackathon organised by IEEE PES and IEEE CASS at BMS Institute of Technology and Management, on 19–20 December 2026.",
     featured: true,
   },
   {
@@ -12,16 +12,16 @@ export const faqs: Faq[] = [
   },
   {
     q: "Are problem statements provided?",
-    a: "No. You get two broad domains (PES and CAS) and choose your own problem, then design and build your own solution.",
+    a: "No. You get two broad domains (PES and CASS) and choose your own problem, then design and build your own solution.",
     featured: true,
   },
   {
-    q: "What are the three domains?",
-    a: "IEEE PES (Power & Energy Systems), IEEE CAS (Circuits & Systems) and Open Innovation.",
+    q: "What are the Two domains?",
+    a: "IEEE PES (Power & Energy Systems) and IEEE CASS (Circuits & Systems) .",
   },
   {
     q: "Who is eligible?",
-    a: "Students of BMS Institute of Technology and Management only, from all branches and all academic years.",
+    a: "CircuitX'26 is open to students from all colleges and universities, across all branches and academic years.",
   },
   {
     q: "What is the team size?",

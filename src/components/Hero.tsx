@@ -37,7 +37,7 @@ export function Hero() {
         <dl className="hero-facts">
           <div><dt>When</dt><dd>{event.dates.label}</dd></div>
           <div><dt>Where</dt><dd>{event.institutionShort}</dd></div>
-          <div><dt>By</dt><dd>IEEE PES x IEEE CAS</dd></div>
+          <div><dt>By</dt><dd>IEEE PES x IEEE CASS</dd></div>
         </dl>
       </div>
       <Village className="hero-village" />

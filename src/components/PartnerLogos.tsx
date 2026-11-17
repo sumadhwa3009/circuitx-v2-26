@@ -8,7 +8,7 @@ const logos = [
   { src: "/logos/ieee.png", alt: "IEEE", name: "IEEE" },
   { src: "/logos/ieee-bangalore.png", alt: "IEEE Bangalore Section", name: "IEEE Bangalore" },
   { src: "/logos/ieee-pes.png", alt: "IEEE Power and Energy Society", name: "IEEE PES" },
-  { src: "/logos/ieee-cas.png", alt: "IEEE Circuits and Systems Society", name: "IEEE CAS" },
+  { src: "/logos/ieee-cas.png", alt: "IEEE Circuits and Systems Society", name: "IEEE CASS" },
   { src: "/logos/iic.png", alt: "Institution's Innovation Council", name: "IIC" },
   { src: "/logos/acdc.png", alt: "AC DC Club BMSIT&M", name: "AC DC Club" },
 ];
