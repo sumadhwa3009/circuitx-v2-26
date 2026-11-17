@@ -55,7 +55,7 @@ const info = [
   { Icon: Layers, k: "2 domains", v: "PES and CAS " },
   {
     Icon: GraduationCap,
-    k: "BMSIT&M only",
+    k: "Open to All",
     v: "All branches, all academic years",
   },
 ];

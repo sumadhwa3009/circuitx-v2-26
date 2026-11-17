@@ -6,7 +6,7 @@ export type RegistrationStatus = "coming-soon" | "open" | "closed" | "shortlist-
 
 export const event = {
   name: "CircuitX'26",
-  theme: "Santa Doom",
+  theme: "PES x CAS",
   tagline: "Build the unknown.",
   description:
     "A 16-hour overnight hackathon with two broad domains, and one secret challenge waiting halfway through.",
