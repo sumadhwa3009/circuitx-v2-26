@@ -18,17 +18,8 @@ const stops = [
     d: "The final phase starts on 19 December. Build your own solution through the night.",
   },
   {
-    t: "Discover X",
-    d: "About halfway through, the committee reveals X.",
-    x: true,
-  },
-  {
-    t: "Integrate X",
-    d: "Every team must work X into the project it has already started.",
-  },
-  {
     t: "Present your prototype",
-    d: "Demonstrate what you built, with X inside.",
+    d: "Demonstrate the solution you built to the judging panel.",
   },
 ];
 
@@ -167,12 +158,12 @@ export function Route() {
         {stops.map((stop, i) => (
           <li
             key={stop.t}
-            className={`stop ${i % 2 ? "r" : "l"} ${stop.x ? "is-x" : ""}`}
+            className={`stop ${i % 2 ? "r" : "l"}`}
             style={{
               top: `${((i + 0.5) / stops.length) * 100}%`,
             }}
           >
-            <span className="stop-pin">{stop.x ? "X" : ""}</span>
+            <span className="stop-pin" />
             <h3>{stop.t}</h3>
             <p>{stop.d}</p>
           </li>

@@ -346,27 +346,14 @@ export function Sleigh({ className = "" }: { className?: string }) {
   );
 }
 
-/** Heavy slanted X matching the logo's X. Lime is reserved for this mark. */
+/** Heavy slanted CircuitX mark. Lime is reserved for this shape. */
 export function XMark({ className = "", glitch = false }: { className?: string; glitch?: boolean }) {
   return (
-    <svg viewBox="0 0 400 320" role="img" aria-label="The X" className={`${className}${glitch ? " glitch" : ""}`}>
+    <svg viewBox="0 0 400 320" role="img" aria-label="CircuitX mark" className={`${className}${glitch ? " glitch" : ""}`}>
       <defs><linearGradient id="xg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#b7f23a" /><stop offset="1" stopColor="#7fc413" /></linearGradient></defs>
       <polygon points="95,0 175,0 400,320 320,320" fill="url(#xg)" />
       <polygon points="310,0 395,0 200,150 150,100" fill="url(#xg)" />
       <polygon points="0,320 80,320 190,185 140,135" fill="url(#xg)" />
-    </svg>
-  );
-}
-
-/** Rotating vault ring with tick marks, used around the X. */
-export function VaultRings({ className = "" }: { className?: string }) {
-  const ticks = Array.from({ length: 72 }, (_, i) => i * 5);
-  return (
-    <svg className={className} viewBox="-200 -200 400 400" aria-hidden="true">
-      <g className="ring-a"><circle r="190" fill="none" stroke="#19e68c" strokeOpacity=".5" strokeWidth="1.5" strokeDasharray="2 10" />
-        {ticks.map((a) => <line key={a} transform={`rotate(${a})`} x1="0" y1="-176" x2="0" y2={a % 15 === 0 ? -158 : -168} stroke="#aab4c3" strokeWidth={a % 15 === 0 ? 2.5 : 1} />)}</g>
-      <g className="ring-b"><circle r="140" fill="none" stroke="#ffb347" strokeOpacity=".55" strokeWidth="2" strokeDasharray="40 14 8 14" /></g>
-      <circle r="108" fill="none" stroke="#19e68c" strokeOpacity=".35" />
     </svg>
   );
 }

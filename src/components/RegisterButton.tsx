@@ -18,7 +18,7 @@ export function RegisterButton({ small = false }: { small?: boolean }) {
     );
   if (status === "shortlist-announced")
     return (
-      <Link href="/announcements" className={`${cls} btn-go`}>
+      <Link href="/#updates" className={`${cls} btn-go`}>
         <span>{copy.label}</span>
       </Link>
     );

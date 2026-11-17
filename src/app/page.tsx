@@ -3,7 +3,6 @@ import { Hero, Tape } from "@/components/Hero";
 import { Rail } from "@/components/Rail";
 import { CircuitTree, Burst, Mask } from "@/components/Art";
 import { DomainGrid, DomainsNote } from "@/components/Domains";
-import { XFile } from "@/components/XFile";
 import { Route } from "@/components/Route";
 import { Countdown } from "@/components/Countdown";
 import { FaqList } from "@/components/FaqList";
@@ -24,7 +23,7 @@ import {
   GraduationCap,
   FilePenLine,
   Compass,
-  ShieldQuestion,
+  Zap,
   MapPin,
 } from "lucide-react";
 
@@ -40,9 +39,9 @@ const pillars = [
     d: "Two broad domains. Your idea, your approach, your prototype.",
   },
   {
-    Icon: ShieldQuestion,
-    t: "The unexpected X challenge",
-    d: "Revealed halfway through. Every team has to adapt.",
+    Icon: Zap,
+    t: "Bring your idea to life",
+    d: "Shape a practical prototype that is ready to demonstrate.",
   },
 ];
 const info = [
@@ -80,8 +79,8 @@ export default function Home() {
             <p className="lead">
               There are no problem statements to pick from. You get broad
               domains and the freedom to find a problem and build an original
-              solution. Halfway through the build, the committee reveals X, and
-              your project has to absorb it.
+              solution. Take your idea from the first sketch to a working
+              prototype over one overnight build.
             </p>
             <ul className="pillars">
               {pillars.map(({ Icon, t, d }) => (
@@ -106,22 +105,6 @@ export default function Home() {
           <p className="lead">Pick the field you want to build in.</p>
           <DomainGrid />
           <DomainsNote />
-        </div>
-      </section>
-
-      <section className="sec sec-x" id="x" data-rail="The X">
-        <div className="wrap">
-          <div className="x-head">
-            <h2 className="h2">What is X?</h2>
-            <p className="lead">
-              You start with your idea. You build your prototype. But halfway
-              through the journey, something changes.
-            </p>
-            <p className="reveal-line">
-              REVEALED HALFWAY THROUGH THE HACKATHON.
-            </p>
-          </div>
-          <XFile />
         </div>
       </section>
 
@@ -226,12 +209,9 @@ export default function Home() {
           <div>
             <div className="updates-head">
               <h2>Latest announcements</h2>
-              <Link href="/announcements" className="link">
-                All announcements
-              </Link>
             </div>
             <div className="notes">
-              {announcements.slice(0, 3).map((a) => (
+              {announcements.map((a) => (
                 <AnnouncementCard key={a.id} a={a} />
               ))}
             </div>
@@ -240,7 +220,7 @@ export default function Home() {
             <div className="updates-head">
               <h2>Common questions</h2>
               <Link href="/faq" className="link">
-                All FAQs
+                FAQs & contact
               </Link>
             </div>
             <FaqList items={faqs.filter((f) => f.featured)} />
@@ -269,10 +249,10 @@ export default function Home() {
       <section className="cta" id="join" data-rail="Join">
         <Burst className="cta-burst" />
         <div className="wrap">
-          <h2>The unknown is waiting.</h2>
+          <h2>Your idea is waiting.</h2>
           <p>
-            You&apos;ve got the idea. You&apos;ve got the freedom. But are you
-            ready for X?
+            You&apos;ve got the idea. You&apos;ve got the freedom. Are you ready to
+            build it?
           </p>
           <RegisterButton />
         </div>

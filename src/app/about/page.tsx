@@ -11,7 +11,7 @@ export default function About() {
       <div className="prose">
         <div><h2>The philosophy</h2><p>Most hackathons hand teams a problem. Here you get two broad domains and decide for yourselves what is worth solving, how to solve it and what to build.</p></div>
         <div><h2>Why no problem statements</h2><p>Finding the right problem is half of engineering. We want teams to practise that, not skip it.</p></div>
-        <div><h2>The X factor</h2><p>About halfway through the 16-hour build, the committee reveals X. Every team must integrate it into the project it has already started. What X is stays secret until then.</p></div>
+        <div><h2>Build through the night</h2><p>Over 16 hours, your team takes an idea from problem discovery to a working prototype. The final demonstration is your chance to show the thinking and engineering behind it.</p></div>
         <div><h2>Organised by</h2><p>{event.organisers.map((o) => o.name).join(" and ")}, at {event.institution}.</p></div>
       </div>
     </div></section>

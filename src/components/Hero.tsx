@@ -1,28 +1,16 @@
 "use client";
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Snow } from "./Snow";
 import { Village } from "./Art";
+import { HeroBackdrop } from "./HeroBackdrop";
 import { RegisterButton } from "./RegisterButton";
 import { event } from "@/config/event";
 
 export function Hero() {
-  const [video, setVideo] = useState(false);
-  useEffect(() => {
-    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const wide = matchMedia("(min-width: 768px)").matches;
-    const saver = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
-    setVideo(wide && !reduce && !saver);
-  }, []);
   return (
     <section className="hero" id="top" data-rail="Start">
-      <Image src="/video/hero-poster.jpg" alt="" fill priority sizes="100vw" className="hero-img" />
-      {video && (
-        <video className="hero-vid" autoPlay muted loop playsInline preload="metadata" poster="/video/hero-poster.jpg" aria-hidden="true">
-          <source src="/video/hero.webm" type="video/webm" /><source src="/video/hero.mp4" type="video/mp4" />
-        </video>
-      )}
+      <HeroBackdrop />
       <div className="hero-shade" /><div className="hero-lights" /><div className="grain" />
       <Snow />
       <div className="hero-body wrap">
@@ -32,7 +20,7 @@ export function Hero() {
           <span className="metal year" data-t="'26">&apos;26</span>
         </h1>
         <p className="hero-line">BUILD THE UNKNOWN.</p>
-        <p className="hero-sub">Choose your own problem. Build your own solution. Then, halfway through the night, the rules change.</p>
+        <p className="hero-sub">Choose your own problem. Build your own solution. Take it from the first spark to a working prototype.</p>
         <div className="hero-cta"><RegisterButton /><Link href="/about" className="btn btn-line"><span>Explore CircuitX</span></Link></div>
         <dl className="hero-facts">
           <div><dt>When</dt><dd>{event.dates.label}</dd></div>
@@ -44,9 +32,10 @@ export function Hero() {
     </section>
   );
 }
+// keep Tape() unchanged
 
 export function Tape() {
-  const words = ["THINK BEYOND BOUNDARIES", "BUILD THE UNKNOWN", "EXPECT THE UNEXPECTED", "THE X HAS NOT BEEN REVEALED"];
+  const words = ["THINK BEYOND BOUNDARIES", "BUILD THE UNKNOWN", "MAKE IT MATTER", "ENGINEER THE IMPOSSIBLE"];
   const row = words.concat(words).map((w, i) => <span key={i}>{w}<em>✕</em></span>);
   return (
     <div className="tape" aria-hidden="true">
