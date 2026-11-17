@@ -3,7 +3,7 @@ import { PageBanner } from "@/components/PageBanner";
 import { DomainGrid } from "@/components/Domains";
 export const metadata: Metadata = {
   title: "Domains",
-  description: "IEEE PES and IEEE CAS: the two domains of CircuitX'26.",
+  description: "IEEE PES and IEEE CASS: the two domains of CircuitX'26.",
 };
 export default function Domains() {
   return (

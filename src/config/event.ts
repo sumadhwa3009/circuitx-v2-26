@@ -14,7 +14,7 @@ export const event = {
   institutionShort: "BMSIT&M",
   organisers: [
   { id: "pes", name: "IEEE Power & Energy Society", short: "IEEE PES", logo: null as string | null, email: "pes-email@example.com" as string },
-  { id: "cas", name: "IEEE Circuits and Systems Society", short: "IEEE CAS", logo: null as string | null, email: "cas-email@example.com" as string },
+  { id: "cas", name: "IEEE Circuits and Systems Society", short: "IEEE CASS", logo: null as string | null, email: "cas-email@example.com" as string },
 ],
   venue: {
     name: "BS Narayana Auditorium",
@@ -39,11 +39,11 @@ export const event = {
   },
   social: [
   { id: "pes-instagram", label: "IEEE PES Instagram", url: "" },
-  { id: "cas-instagram", label: "IEEE CAS Instagram", url: "" },
+  { id: "cas-instagram", label: "IEEE CASS Instagram", url: "" },
   { id: "pes-linkedin", label: "IEEE PES LinkedIn", url: "" },
-  { id: "cas-linkedin", label: "IEEE CAS LinkedIn", url: "" },
+  { id: "cas-linkedin", label: "IEEE CASS LinkedIn", url: "" },
 ] as { id: string; label: string; url: string }[],
-  contact: { email: "ieeepes.bmsit@gmail.com", committee: "IEEE PES x IEEE CAS", persons: [{ name: "Sumadhwa Rao", role: "Event Coordinator", phone: "+91 9876543210" }] as { name: string; role: string; phone?: string }[] },
+  contact: { email: "ieeepes.bmsit@gmail.com", committee: "IEEE PES x IEEE CASS", persons: [{ name: "Sumadhwa Rao", role: "Event Coordinator", phone: "+91 9876543210" }] as { name: string; role: string; phone?: string }[] },
 } as const;
 
 export const registrationCopy: Record<RegistrationStatus, { label: string; helper: string; enabled: boolean }> = {
@@ -78,6 +78,6 @@ export const prizes = {
   ],
   domains: [
     { id: "pes", name: "IEEE PES", full: "Power & Energy Systems" },
-    { id: "cas", name: "IEEE CAS", full: "Circuits & Systems" },
+    { id: "cas", name: "IEEE CASS", full: "Circuits & Systems" },
   ],
 } as const;
