@@ -17,13 +17,13 @@ export const event = {
   { id: "cas", name: "IEEE Circuits and Systems Society", short: "IEEE CASS", logo: null as string | null, email: "cassbmsit@gmail.com" as string },
 ],
   venue: {
-    name: "APJ Laboratory",
+    name: "APJ Abdul Kalam Laboratory",
     block: "Sir C V Raman Block",
     institution: "BMS Institute of Technology and Management",
     mapUrl: "https://maps.app.goo.gl/57R115GsTYzuPuXUA"
   },
   timezone: "Asia/Kolkata",
-  dates: { start: "2026-12-19", end: "2026-12-20", label: "19–20 December 2026" },
+  dates: { start: "2026-12-19", end: "2026-12-20", label: "19-20 December 2026" },
   build: {
     start: "2026-12-19T17:00:00+05:30",
     end: "2026-12-20T09:00:00+05:30",
@@ -36,6 +36,11 @@ export const event = {
     unstopUrl: "", // single source for every registration button
     pptTemplateUrl: "", // download link appears only when this is set
     deadline: null as string | null,
+  },
+  quicklinks: {
+    cocurl: "https://circuitx26.vercel.app/", // code of conduct URL
+    tacurl: "https://circuitx26.vercel.app/", // terms and conditions URL
+    pncurl: "https://circuitx26.vercel.app/", // privacy notice URL
   },
   social: [
   { id: "pes-instagram", label: "IEEE PES Instagram", url: "https://www.instagram.com/ieee.pes_bmsit/" },

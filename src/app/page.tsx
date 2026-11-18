@@ -1,49 +1,27 @@
 import Link from "next/link";
 import { Hero, Tape } from "@/components/Hero";
 import { Rail } from "@/components/Rail";
-import { CircuitTree, Burst, Mask } from "@/components/Art";
-import { DomainGrid, DomainsNote } from "@/components/Domains";
+import { Burst, Mask } from "@/components/Art";
 import { Route } from "@/components/Route";
-import { Countdown } from "@/components/Countdown";
 import { FaqList } from "@/components/FaqList";
 import { AnnouncementCard } from "@/components/AnnouncementCard";
 import { Terminal } from "@/components/Terminal";
 import { RegisterButton } from "@/components/RegisterButton";
-import { event } from "@/config/event";
 import { faqs } from "@/data/faqs";
 import { announcements } from "@/data/announcements";
 import { Prizes } from "@/components/Prizes";
-import Image from "next/image";
 import { PartnerLogos } from "@/components/PartnerLogos";
 import { PrizeBackdrop, Gift } from "@/components/PrizeArt";
+import { event } from "@/config/event";
 import {
   Clock,
   Users,
   Layers,
   GraduationCap,
-  FilePenLine,
   Compass,
-  Zap,
-  MapPin,
+  ArrowRight,
 } from "lucide-react";
 
-const pillars = [
-  {
-    Icon: FilePenLine,
-    t: "No predefined problem statements",
-    d: "You find the problem worth solving.",
-  },
-  {
-    Icon: Compass,
-    t: "Freedom to innovate",
-    d: "Two broad domains. Your idea, your approach, your prototype.",
-  },
-  {
-    Icon: Zap,
-    t: "Bring your idea to life",
-    d: "Shape a practical prototype that is ready to demonstrate.",
-  },
-];
 const info = [
   { Icon: Clock, k: "16 hours", v: "An overnight build" },
   {
@@ -55,7 +33,28 @@ const info = [
   {
     Icon: GraduationCap,
     k: "Open to All",
-    v:  "All colleges, branches and academic years",
+    v: "All colleges, branches and academic years",
+  },
+];
+
+const goCards = [
+  {
+    href: "/about",
+    Icon: Compass,
+    tag: "About",
+    t: "Not another hackathon.",
+    d: "No problem statements. Find the problem worth solving and build your own solution.",
+    cta: "Read our story",
+    cls: "go-about",
+  },
+  {
+    href: "/domains",
+    Icon: Layers,
+    tag: "Domains",
+    t: "Two domains. Your problem.",
+    d: "IEEE PES or IEEE CASS. Explore the areas and pick the field you want to build in.",
+    cta: "Explore the domains",
+    cls: "go-domains",
   },
 ];
 
@@ -67,57 +66,24 @@ export default function Home() {
       <Tape />
       <PartnerLogos />
 
-      <section className="sec" id="about" data-rail="About">
-        <div className="wrap about">
-          <div className="about-art">
-            <CircuitTree />
-          </div>
-          <div>
-            <h2 className="h2">
-              Not another hackathon. A different way to innovate.
-            </h2>
-            <p className="lead">
-              There are no problem statements to pick from. You get broad
-              domains and the freedom to find a problem and build an original
-              solution. Take your idea from the first sketch to a working
-              prototype over one overnight build.
-            </p>
-            <ul className="pillars">
-              {pillars.map(({ Icon, t, d }) => (
-                <li key={t}>
-                  <span className="hex">
-                    <Icon size={26} aria-hidden="true" />
-                  </span>
-                  <div>
-                    <h3>{t}</h3>
-                    <p>{d}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
+      <section className="sec go-sec" id="explore" data-rail="Explore">
+        <div className="wrap go-grid">
+          {goCards.map(({ href, Icon, tag, t, d, cta, cls }) => (
+            <Link key={href} href={href} className={`go-card ${cls}`}>
+              <span className="go-icon"><Icon size={30} aria-hidden="true" /></span>
+              <p className="go-tag">{tag}</p>
+              <h3>{t}</h3>
+              <p>{d}</p>
+              <span className="go-cta">{cta} <ArrowRight size={18} aria-hidden="true" /></span>
+            </Link>
+          ))}
         </div>
       </section>
 
-      <section className="sec sec-deep" id="domains" data-rail="Domains">
-        <div className="wrap">
-          <h2 className="h2">Explore the domains</h2>
-          <p className="lead">Pick the field you want to build in.</p>
-          <DomainGrid />
-          <DomainsNote />
-        </div>
-      </section>
-
-      <section className="sec" id="journey" data-rail="Journey">
+      <section className="sec sec-deep" id="journey" data-rail="Journey">
         <div className="wrap">
           <h2 className="h2">How it works</h2>
           <Route />
-        </div>
-      </section>
-
-      <section className="sec sec-clock" id="countdown" data-rail="Countdown">
-        <div className="wrap clock-wrap">
-          <Countdown />
         </div>
       </section>
 
@@ -147,63 +113,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="sec sec-venue" id="venue" data-rail="Venue">
-        <div className="wrap venue-grid">
-          <div>
-            <h2 className="h2">Venue</h2>
-            <address className="addr">
-              <MapPin size={28} aria-hidden="true" />
-              <span>
-                {event.venue.name},<br />
-                {event.venue.block},<br />
-                {event.venue.institution}.
-              </span>
-            </address>
-            {event.venue.mapUrl ? (
-              <a
-                href={event.venue.mapUrl}
-                className="btn btn-line"
-                style={{ marginTop: 26 }}
-              >
-                <span>Open in maps</span>
-              </a>
-            ) : (
-              <p className="fine" style={{ marginTop: 22 }}>
-                Map and directions will be added once the location is verified.
-              </p>
-            )}
-          </div>
-          <div>
-            <h2 className="h2">Organisers</h2>
-
-            <ul className="orgs">
-              {event.organisers.map((o) => {
-                const isPES = o.name.toLowerCase().includes("power");
-
-                return (
-                  <li key={o.id}>
-                    <Image
-                      className="org-logo"
-                      src={
-                        isPES ? "/logos/ieee-pes.png" : "/logos/ieee-cas.png"
-                      }
-                      alt={o.name}
-                      width={110}
-                      height={75}
-                    />
-                    <span>{o.name}</span>
-                  </li>
-                );
-              })}
-            </ul>
-
-            <p className="fine" style={{ marginTop: 18 }}>
-              Hosted at {event.institution}.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section className="sec" id="updates" data-rail="Updates">
         <div className="wrap updates">
           <div>
@@ -228,11 +137,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        className="sec sec-term"
-        id="transmission"
-        data-rail="Transmission"
-      >
+      <section className="sec sec-term" id="transmission" data-rail="Transmission">
         <div className="wrap">
           <h2 className="h2">Incoming transmission</h2>
           <p className="lead" style={{ marginBottom: 40 }}>

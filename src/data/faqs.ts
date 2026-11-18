@@ -26,7 +26,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "Where is the event held?",
-    a: "APJ Laboratory, Sir C V Raman Block, BMSIT&M.",
+    a: "APJ Abdul Kalam Laboratory, Sir C V Raman Block, BMSIT&M.",
   },
   {
     q: "How to register for CircuitX'26?",
@@ -36,5 +36,10 @@ export const faqs: Faq[] = [
   {
     q: "Is the idea PPT mandatory?",
     a: "Ideas are submitted through the official PowerPoint template. <a href={event.registration.pptTemplateUrl} target='_blank' rel='noopener noreferrer'>Click here to download the PPT Template</a>",
+  },
+  {
+    q: "Is there a registration fee?",
+    a: "There is no registration fee for CircuitX'26. However, shortlisted teams must pay a Round 2 fee of ₹1,000 per team, or ₹750 if at least one member has an IEEE CAS or PES membership.",
+    featured: true,
   },
 ];

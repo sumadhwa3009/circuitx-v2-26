@@ -20,7 +20,7 @@ export function Countdown() {
   const cells: [number, string][] = [[t.days, "Days"], [t.hours, "Hours"], [t.minutes, "Minutes"], [t.seconds, "Seconds"]];
   return (
     <div>
-      <p className="clock-lead">{phase === "before" ? "Until the final phase begins" : "Final phase in progress. Time remaining"}</p>
+      <p className="clock-lead">{phase === "before" ? "Final phase begins in" : "Final phase in progress"}</p>
       <div className="clock" role="timer" aria-live="off">
         {cells.map(([v, l], i) => (
           <div className="clock-cell" key={l}>

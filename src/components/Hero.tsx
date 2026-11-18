@@ -5,7 +5,7 @@ import { Snow } from "./Snow";
 import { Village } from "./Art";
 import { HeroBackdrop } from "./HeroBackdrop";
 import { RegisterButton } from "./RegisterButton";
-import { event } from "@/config/event";
+import { Countdown } from "@/components/Countdown";
 
 export function Hero() {
   return (
@@ -14,25 +14,19 @@ export function Hero() {
       <div className="hero-shade" /><div className="hero-lights" /><div className="grain" />
       <Snow />
       <div className="hero-body wrap">
-        <p className="hero-tag"><span className="dot" />16-hour overnight hackathon</p>
+        <p className="hero-tag"><span className="dot" />IEEE PES x IEEE CASS PRESENTS</p>
         <h1 className="hero-title" aria-label="CircuitX'26 – Santa Doom">
           <Image src="/brand/circuitx-logo.png" alt="" width={2172} height={724} priority className="hero-logo glitch" />
           <span className="metal year" data-t="'26">&apos;26</span>
         </h1>
         <p className="hero-line">BUILD THE UNKNOWN.</p>
-        <p className="hero-sub">Choose your own problem. Build your own solution. Take it from the first spark to a working prototype.</p>
+        <div className="hero-clock"><Countdown /></div>
         <div className="hero-cta"><RegisterButton /><Link href="/about" className="btn btn-line"><span>Explore CircuitX</span></Link></div>
-        <dl className="hero-facts">
-          <div><dt>When</dt><dd>{event.dates.label}</dd></div>
-          <div><dt>Where</dt><dd>{event.institutionShort}</dd></div>
-          <div><dt>By</dt><dd>IEEE PES x IEEE CASS</dd></div>
-        </dl>
       </div>
       <Village className="hero-village" />
     </section>
   );
 }
-// keep Tape() unchanged
 
 export function Tape() {
   const words = ["THINK BEYOND BOUNDARIES", "BUILD THE UNKNOWN", "MAKE IT MATTER", "ENGINEER THE IMPOSSIBLE"];

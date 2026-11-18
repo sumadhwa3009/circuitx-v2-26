@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Logo } from "./Logo";
 import { Village } from "./Art";
 import { event, footerNav } from "@/config/event";
+import { SocialIcons, EmailIcons, PhoneLink } from "./ContactIcons";
 
 export function Footer() {
   const social = event.social.filter((s) => s.url);
@@ -17,11 +18,26 @@ export function Footer() {
         <nav aria-label="Footer"><h2>Explore</h2><ul>{footerNav.map((n) => <li key={n.href}><Link href={n.href}>{n.label}</Link></li>)}</ul></nav>
         <div>
           <h2>Get in touch</h2>
+          {event.contact.persons.length ? (
+            <ul>
+              {event.contact.persons.map((person) => (
+                <li key={person.name}>
+                  {person.phone ? <PhoneLink name={person.name} phone={person.phone} /> : person.name}
+                </li>
+              ))}
+            </ul>
+          ) : "TBA"}
+
+          <EmailIcons organisers={event.organisers} />
+          {social.length === 0 ? <p>Social links: coming soon</p> : <SocialIcons items={social} />}
+        </div>
+        <div>
+          <h2>Quick Links</h2>
           <ul>
-            {event.organisers.map((o) => (
-              <li key={o.id}>{o.email ? <a href={`mailto:${o.email}`}>{o.short}: {o.email}</a> : `${o.short}: TBA`}</li>
-            ))}
-            {social.length === 0 ? <li>Social links: coming soon</li> : social.map((s) => <li key={s.id}><a href={s.url} target="_blank" rel="noopener noreferrer">{s.label}</a></li>)}
+            <li><Link href={event.venue.mapUrl} target="_blank" rel="noopener noreferrer">Campus Map</Link></li>
+            <li><Link href={event.quicklinks.cocurl} target="_blank" rel="noopener noreferrer">Code of Conduct</Link></li>
+            <li><Link href={event.quicklinks.tacurl} target="_blank" rel="noopener noreferrer">Terms & Conditions</Link></li>
+            <li><Link href={event.quicklinks.pncurl} target="_blank" rel="noopener noreferrer">Privacy Notice</Link></li>
           </ul>
         </div>
       </div>
