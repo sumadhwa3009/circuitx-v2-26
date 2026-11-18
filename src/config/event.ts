@@ -67,7 +67,6 @@ export const registrationCopy: Record<RegistrationStatus, { label: string; helpe
 export const nav = [
   { href: "/about", label: "About" },
   { href: "/domains", label: "Domains" },
-  { href: "/how-it-works", label: "Journey & guidelines" },
   { href: "/schedule", label: "Schedule" },
   { href: "/faq", label: "FAQ & contact" },
 ];

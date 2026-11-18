@@ -84,6 +84,9 @@ export default function Home() {
         <div className="wrap">
           <h2 className="h2">How it works</h2>
           <Route />
+          <Link href="/schedule" className="btn btn-line" style={{ marginTop: 24, display: "inline-flex", alignItems: "center", gap: 8 }}>
+            <span>Click here to view the detailed schedule</span>
+          </Link>
         </div>
       </section>
 
