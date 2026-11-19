@@ -1,13 +1,16 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { prizes } from "@/config/event";
+import { themes } from "@/data/themes";
 
+const rs = (n: number) => `${prizes.currency}${n.toLocaleString("en-IN")}`;
 const BOOT = ["CircuitX v26.12", "linking to the north pole.......... ok", "opening channel..................... ok", "type 'help' to begin."];
 const CMD: Record<string, string> = {
-  help: "commands: help, about, domains, status, prizes, clear",
+  help: "commands: help, about, themes, status, prizes, clear",
   about: "CircuitX'26 – A 16-hour innovation experience.",
-  domains: "PES | CASS",
+  themes: themes.map((t) => `${t.code} ${t.title}`).join(" | "),
   status: "ALL SYSTEMS OPERATIONAL.",
-  prizes: "1st: ₹12,000 | 2nd: ₹8,000",
+  prizes: `Per theme: ${prizes.tiers.map((t) => `${t.label} ${rs(t.amount)}`).join(" | ")}`,
 };
 
 export function Terminal() {

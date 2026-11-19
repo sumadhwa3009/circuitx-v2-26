@@ -18,9 +18,9 @@ const GEM_SPOTS = [
 
 
 const stops = [
-  { t: "Form Your Team", d: "Gather 2 to 4 members. Mixed-college and mixed-branch teams are allowed. Pick one domain: PES or CASS." },
+  { t: "Form Your Team", d: "Gather 2 to 4 members. Mixed-college and mixed-branch teams are allowed. Pick one of the two themes." },
   { t: "Submit Your Idea", d: "Register on Unstop (free) and submit your idea on the official PPT template between 20 and 30 November. Choose your own problem, as there are no problem statements." },
-  { t: "Get Shortlisted", d: "The shortlist is announced by 10 December. Up to 10 teams per domain move on, so at most 20 teams reach the finale." },
+  { t: "Get Shortlisted", d: "The shortlist is announced by 10 December. Up to 10 teams per theme move on, so at most 20 teams reach the finale." },
   { t: "Confirm Your Spot", d: "Shortlisted teams pay the Round 2 fee: ₹1,000 per team, or ₹750 if at least one member is from IEEE CAS or PES." },
   { t: "Build for 16 Hours", d: "On 19 and 20 December, build your prototype overnight at the APJ Abdul Kalam Lab, BMSIT&M. A surprise awaits during the build." },
   { t: "Present Your Prototype", d: "Demonstrate your working prototype at the end of the build and show what you made." },
@@ -143,7 +143,7 @@ export function Route() {
 
         <div className="route-glove" ref={glove}>
           <div className="glove-img">
-            <Image src={gauntlet} alt="The golden gauntlet" className="glove-art" sizes="170px" priority />
+            <Image src={gauntlet} alt="The golden gauntlet" className="glove-art" sizes="100px" />
             {GEM_SPOTS.map((s, i) => (
               <span key={i} className="gem-dot" style={{ left: `${s.x}%`, top: `${s.y}%`, width: `${s.w}%`, ...gemVar(i) }} />
             ))}

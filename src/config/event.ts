@@ -32,9 +32,9 @@ export const event = {
   team: { min: 2, max: 4 },
   eligibility: "Open to students from all colleges and universities, across all academic branches and academic years.",
   registration: {
-    status: "coming-soon" as RegistrationStatus,
-    unstopUrl: "", // single source for every registration button
-    pptTemplateUrl: "", // download link appears only when this is set
+    status: "open" as RegistrationStatus,
+    unstopUrl: "https://unstop.com/p/circuitx-bms-institute-of-technology-and-management-bmsitm-bangalore-1811526", // single source for every registration button
+    pptTemplateUrl: "https://docs.google.com/presentation/d/1PeX-Um33cy2XsQI6503K0eRa2mSDGFT6WK3JZGqIT2o/edit?usp=sharing", // download link appears only when this is set
     deadline: null as string | null,
   },
   quicklinks: {
@@ -66,7 +66,7 @@ export const registrationCopy: Record<RegistrationStatus, { label: string; helpe
 
 export const nav = [
   { href: "/about", label: "About" },
-  { href: "/domains", label: "Domains" },
+  { href: "/themes", label: "Themes" },
   { href: "/schedule", label: "Schedule" },
   { href: "/faq", label: "FAQ & contact" },
 ];
@@ -79,9 +79,5 @@ export const prizes = {
   tiers: [
     { id: "winner", label: "Winners", note: "", amount: 12000 },
     { id: "runner", label: "Runners-up", note: "", amount: 8000 },
-  ],
-  domains: [
-    { id: "pes", name: "IEEE PES", full: "Power & Energy Systems" },
-    { id: "cas", name: "IEEE CASS", full: "Circuits & Systems" },
   ],
 } as const;

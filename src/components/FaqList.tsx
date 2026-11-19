@@ -7,7 +7,21 @@ export function FaqList({ items }: { items: Faq[] }) {
       {items.map((f) => (
         <details key={f.q}>
           <summary><span>{f.q}</span><i aria-hidden="true" /></summary>
-          <p>{f.a}</p>
+          <p>
+            {f.a}
+            {f.link && (
+              <>
+                {" "}
+                <a
+                  className="link"
+                  href={f.link.href}
+                  {...(f.link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                >
+                  {f.link.label}
+                </a>
+              </>
+            )}
+          </p>
         </details>
       ))}
     </div>

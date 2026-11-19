@@ -29,7 +29,7 @@ const info = [
     k: `${event.team.min} to ${event.team.max}`,
     v: "Members per team",
   },
-  { Icon: Layers, k: "2 domains", v: "PES and CASS " },
+  { Icon: Layers, k: "2 themes", v: "Sustainable Future and Embedded Intelligence" },
   {
     Icon: GraduationCap,
     k: "Open to All",
@@ -48,12 +48,12 @@ const goCards = [
     cls: "go-about",
   },
   {
-    href: "/domains",
+    href: "/themes",
     Icon: Layers,
-    tag: "Domains",
-    t: "Two domains. Your problem.",
-    d: "IEEE PES or IEEE CASS. Explore the areas and pick the field you want to build in.",
-    cta: "Explore the domains",
+    tag: "Themes",
+    t: "Two themes. Your problem.",
+    d: "Powering a Sustainable Future or Embedded Intelligence. Explore the focus areas and choose what to build.",
+    cta: "Explore the themes",
     cls: "go-domains",
   },
 ];
@@ -96,7 +96,7 @@ export default function Home() {
         <Gift className="gift gift-r" />
         <div className="wrap">
           <h2 className="h2">Prize pool</h2>
-          <p className="lead">Build for your domain. Win in your domain.</p>
+          <p className="lead">Build for your theme. Win in your theme</p>
           <Prizes />
         </div>
       </section>

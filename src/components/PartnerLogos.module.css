@@ -1,4 +1,3 @@
-
 .section {
   position: relative;
   z-index: 2;
@@ -50,11 +49,11 @@
 }
 
 @media (max-width: 650px) {
-    .logos {
+  .logos {
     gap: 14px;
   }
 
-  
+
   .section {
     padding: 28px 18px;
   }
@@ -69,4 +68,16 @@
     min-width: 180px;
   }
 }
-    
+
+@media (max-width: 400px) {
+  .logo {
+    flex: 0 0 100%;
+    min-height: 80px;
+  }
+
+  .image {
+    height: 72px;
+    width: 100%;
+    min-width: 0;
+  }
+}

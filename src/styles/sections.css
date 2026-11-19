@@ -366,7 +366,7 @@
     transform 0.35s,
     background 0.35s;
 }
-.chip-pes {
+.chip-t1 {
   clip-path: polygon(
     0 0,
     100% 0,
@@ -376,7 +376,7 @@
   );
 }
 
-.chip-cas {
+.chip-t2 {
   --c: var(--emerald);
   margin-top: 0;
   clip-path: polygon(34px 0, 100% 0, 100% 100%, 0 100%, 0 34px);
@@ -427,7 +427,7 @@
   .chips {
     grid-template-columns: 1fr;
   }
-  .chip-cas {
+  .chip-t2 {
     margin-top: 0;
   }
 }
@@ -1445,7 +1445,7 @@
   );
   border-top: 5px solid var(--c);
 }
-.prize-pes {
+.prize-t1 {
   clip-path: polygon(
     0 0,
     100% 0,
@@ -1454,7 +1454,7 @@
     0 100%
   );
 }
-.prize-cas {
+.prize-t2 {
   --c: var(--emerald);
   clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 0 30px);
 }
@@ -2060,3 +2060,36 @@ a.ic:hover::after, a.ic:focus-visible::after { opacity: 1; transform: translate(
 .sched-final .sched b small { color: #ffd890; }
 .sched-final .sched li:last-child { border-bottom: 0; }
 @media (max-width: 820px) { .sched-final { padding: 26px 18px 8px; } }
+
+/* domain cards: clickable + popup */
+.chip { cursor: pointer; }
+.chip:has(.chip-btn:focus-visible) { background: linear-gradient(170deg, rgba(255,255,255,.16), rgba(255,255,255,.05)); }
+.chip-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 24px; padding: 0; border: 0; background: none; cursor: pointer;
+  font: 700 .95rem/1 var(--f-display); letter-spacing: .1em; text-transform: uppercase; color: #fff; }
+.chip-btn::after { content: ""; position: absolute; inset: 0; }
+.chip-btn svg { color: var(--c); transition: transform .3s; }
+.chip:hover .chip-btn svg { transform: translateX(7px); }
+
+.dm { --c: var(--amber); width: min(680px, calc(100vw - 32px)); max-height: min(86vh, 760px); padding: 0; border: 0; color: #cfd8e6;
+  background: linear-gradient(170deg, #12204d, #070c25); border-top: 5px solid var(--c);
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,.8), 0 0 60px -20px var(--c);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%); overflow: hidden; }
+.dm-t2 { --c: var(--emerald); }
+.dm::backdrop { background: rgba(2,4,15,.78); backdrop-filter: blur(4px); }
+.dm[open] { animation: dmIn .3s ease-out; }
+@keyframes dmIn { from { opacity: 0; transform: translateY(16px) scale(.97); } }
+.dm-body { position: relative; max-height: min(86vh, 760px); overflow-y: auto; padding: 38px clamp(22px, 5vw, 44px) 44px; }
+.dm-x { position: absolute; top: 14px; right: 14px; display: grid; place-items: center; width: 42px; height: 42px; border: 0; border-radius: 50%;
+  color: #fff; background: rgba(255,255,255,.08); cursor: pointer; transition: background .25s, color .25s, transform .3s; }
+.dm-x:hover, .dm-x:focus-visible { background: var(--c); color: var(--night); transform: rotate(90deg); }
+.dm-code { font: 500 .85rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--c); }
+.dm h2 { margin: 12px 44px 18px 0; font-size: clamp(2rem, 5vw, 3rem); text-transform: uppercase; }
+.dm-desc { font-size: 1.05rem; color: #dbe3ef; }
+.dm-sub { margin: 28px 0 12px; font-size: 1.4rem; text-transform: uppercase; color: var(--c); }
+.dm-list { display: grid; gap: 10px; }
+.dm-list li { padding: 10px 14px; color: #fff; background: rgba(255,255,255,.06); border-left: 3px solid var(--c); }
+
+/* hero: official PPT download button */
+.btn-ppt { background: rgba(255,179,71,.12); color: var(--amber); box-shadow: inset 0 0 0 1.5px rgba(255,179,71,.65); }
+.btn-ppt span { display: inline-flex; align-items: center; gap: 9px; }
+.btn-ppt:hover, .btn-ppt:focus-visible { background: var(--amber); color: var(--night); transform: translateY(-2px); filter: drop-shadow(0 0 14px rgba(255,179,71,.5)); }

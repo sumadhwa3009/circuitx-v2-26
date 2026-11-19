@@ -11,15 +11,16 @@ const display = Barlow_Condensed({ subsets: ["latin"], weight: ["600", "700", "8
 const body = Barlow({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-body", display: "swap" });
 const mono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-mono", display: "swap" });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-const desc = `${event.name} - ${event.theme}. A 16-hour overnight hackathon by IEEE PES and IEEE CAS at ${event.institutionShort}, ${event.dates.label}.`;
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://circuitx26.vercel.app";
+const title = `${event.name} - ${event.tagline}`;
+const desc = `${event.name}: a 16-hour overnight hackathon by IEEE PES and IEEE CASS at ${event.institutionShort}, ${event.dates.label}. Two themes, no problem statements.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: `${event.name} - ${event.theme}`, template: `%s | ${event.name}` },
+  title: { default: title, template: `%s | ${event.name}` },
   description: desc,
-  openGraph: { title: `${event.name} - ${event.theme}`, description: desc, type: "website", siteName: event.name, images: ["/video/hero-poster.jpg"] },
-  twitter: { card: "summary_large_image", title: `${event.name} - ${event.theme}`, description: desc, images: ["/video/hero-poster.jpg"] },
+  openGraph: { title, description: desc, type: "website", siteName: event.name, images: ["/og.jpg"] },
+  twitter: { card: "summary_large_image", title, description: desc, images: ["/og.jpg"] },
 };
 export const viewport: Viewport = { themeColor: "#04061a", width: "device-width", initialScale: 1 };
 

@@ -22,5 +22,6 @@ export function RegisterButton({ small = false }: { small?: boolean }) {
         <span>{copy.label}</span>
       </Link>
     );
-  return <span role="status" className={`${cls} btn-wait`}><span>{copy.label}</span></span>;
+  const waiting = copy.enabled ? registrationCopy["coming-soon"] : copy;
+  return <span role="status" className={`${cls} btn-wait`}><span>{waiting.label}</span></span>;
 }

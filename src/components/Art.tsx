@@ -358,9 +358,9 @@ export function XMark({ className = "", glitch = false }: { className?: string; 
   );
 }
 
-/** Domain pictograms. */
-export function DomainArt({ id }: { id: string }) {
-  if (id === "pes")
+/** Theme pictograms. */
+export function ThemeArt({ id }: { id: string }) {
+  if (id === "t1")
     return (
       <svg viewBox="0 0 160 140" aria-hidden="true" className="d-art">
         <g stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round">
@@ -370,7 +370,7 @@ export function DomainArt({ id }: { id: string }) {
         <path className="bolt" d="M86 28 L70 58 H82 L74 84 L98 50 H86Z" fill="currentColor" />
       </svg>
     );
-  if (id === "cas")
+  if (id === "t2")
     return (
       <svg viewBox="0 0 160 140" aria-hidden="true" className="d-art">
         <rect x="42" y="30" width="76" height="76" rx="4" fill="none" stroke="currentColor" strokeWidth="3" />

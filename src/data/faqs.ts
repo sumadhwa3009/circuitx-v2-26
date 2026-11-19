@@ -1,4 +1,8 @@
-export type Faq = { q: string; a: string; featured?: boolean };
+import { event } from "@/config/event";
+
+export type Faq = { q: string; a: string; featured?: boolean; link?: { label: string; href: string } };
+
+const ppt = event.registration.pptTemplateUrl;
 
 export const faqs: Faq[] = [
   {
@@ -6,10 +10,15 @@ export const faqs: Faq[] = [
     a: "A 16-hour overnight hackathon organised by IEEE PES and IEEE CASS at BMS Institute of Technology and Management, on 19–20 December 2026.",
     featured: true,
   },
-    {
+  {
     q: "Are problem statements provided?",
-    a: "No. You get two broad domains and choose your own problem, then design and build your own solution.",
+    a: "No. You get two broad themes and choose your own problem within one of them, then design and build your own solution.",
     featured: true,
+  },
+  {
+    q: "What are the themes?",
+    a: "Theme 1 (CX01) is Powering a Sustainable Future and Theme 2 (CX02) is Embedded Intelligence. Each team picks one.",
+    link: { label: "See the themes", href: "/themes" },
   },
   {
     q: "Who is eligible?",
@@ -22,7 +31,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "How does shortlisting work?",
-    a: "You submit your project idea on the official PPT template. The organising committee evaluates submissions and shortlists teams. The number of teams and domain-wise split will be set after registrations close.",
+    a: "You submit your idea on the official PPT template between 20 and 30 November. The organising committee evaluates the submissions and shortlists the top 20 teams, 10 from each theme. The shortlist is announced on 10 December.",
   },
   {
     q: "Where is the event held?",
@@ -35,11 +44,14 @@ export const faqs: Faq[] = [
   },
   {
     q: "Is the idea PPT mandatory?",
-    a: "Ideas are submitted through the official PowerPoint template. <a href={event.registration.pptTemplateUrl} target='_blank' rel='noopener noreferrer'>Click here to download the PPT Template</a>",
+    a: ppt
+      ? "Yes. Ideas must be submitted on the official PPT template."
+      : "Yes. Ideas must be submitted on the official PPT template. The download link will appear here when registrations open.",
+    link: ppt ? { label: "Download the PPT template", href: ppt } : undefined,
   },
   {
     q: "Is there a registration fee?",
-    a: "There is no registration fee for CircuitX'26. However, shortlisted teams must pay a Round 2 fee of ₹1,000 per team, or ₹750 if at least one member has an IEEE CAS or PES membership.",
+    a: "There is no registration fee for Round 1. Shortlisted teams pay a Round 2 fee of ₹1,000 per team, or ₹750 if at least one member has an IEEE CAS or PES membership, by 14 December.",
     featured: true,
   },
 ];
