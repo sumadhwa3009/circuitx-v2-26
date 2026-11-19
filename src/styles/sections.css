@@ -2093,3 +2093,7 @@ a.ic:hover::after, a.ic:focus-visible::after { opacity: 1; transform: translate(
 .btn-ppt { background: rgba(255,179,71,.12); color: var(--amber); box-shadow: inset 0 0 0 1.5px rgba(255,179,71,.65); }
 .btn-ppt span { display: inline-flex; align-items: center; gap: 9px; }
 .btn-ppt:hover, .btn-ppt:focus-visible { background: var(--amber); color: var(--night); transform: translateY(-2px); filter: drop-shadow(0 0 14px rgba(255,179,71,.5)); }
+
+/* hero: decorative village must never block clicks */
+.hero-village { pointer-events: none; }
+.hero-body { z-index: 5; }
