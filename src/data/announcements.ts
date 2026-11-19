@@ -6,6 +6,14 @@ const { unstopUrl, pptTemplateUrl } = event.registration;
 
 // Newest first. Replace this array with an API/CMS call later; keep the type.
 export const announcements: Announcement[] = [
+  {
+    id: "registrations-open",
+    title: "Round 1 registrations are now open",
+    date: "2026-11-20",
+    category: "Registration",
+    description: "Register your team of 2 to 4 members on Unstop and submit your idea. Round 1 is free, and registrations close on 30 November at 11:59 PM. The shortlist of 20 teams, 10 from each theme, is announced on 10 December.",
+    href: unstopUrl || undefined,
+  },
   ...(pptTemplateUrl
     ? [{
         id: "ppt-template",
@@ -16,14 +24,7 @@ export const announcements: Announcement[] = [
         href: pptTemplateUrl,
       }]
     : []),
-  {
-    id: "registrations-open",
-    title: "Round 1 registrations are now open",
-    date: "2026-11-20",
-    category: "Registration",
-    description: "Register your team of 2 to 4 members on Unstop and submit your idea. Round 1 is free, and registrations close on 30 November at 11:59 PM. The shortlist of 20 teams, 10 from each theme, is announced on 10 December.",
-    href: unstopUrl || undefined,
-  },
+  
   {
     id: "themes-released",
     title: "Themes released: Powering a Sustainable Future and Embedded Intelligence",

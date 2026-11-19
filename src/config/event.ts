@@ -38,9 +38,9 @@ export const event = {
     deadline: null as string | null,
   },
   quicklinks: {
-    cocurl: "https://circuitx26.vercel.app/", // code of conduct URL
-    tacurl: "https://circuitx26.vercel.app/", // terms and conditions URL
-    pncurl: "https://circuitx26.vercel.app/", // privacy notice URL
+    cocurl: "https://drive.google.com/file/d/1wU-Ppawto3jpfgUIQ-tLGOSCon8qiFtw/view?usp=sharing", // code of conduct URL
+    tacurl: "https://drive.google.com/file/d/1jnF25-XDDGAtmIEMB6itYNx6pMCU8FwT/view?usp=sharing", // terms and conditions URL
+    pncurl: "https://drive.google.com/file/d/1T5fq986PasmjRI5enxbhbYJQ4dymu1ac/view?usp=sharing", // privacy notice URL
   },
   social: [
   { id: "pes-instagram", label: "IEEE PES Instagram", url: "https://www.instagram.com/ieee.pes_bmsit/" },

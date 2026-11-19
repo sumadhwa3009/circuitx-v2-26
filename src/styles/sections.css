@@ -2097,3 +2097,19 @@ a.ic:hover::after, a.ic:focus-visible::after { opacity: 1; transform: translate(
 /* hero: decorative village must never block clicks */
 .hero-village { pointer-events: none; }
 .hero-body { z-index: 5; }
+
+/* announcement popup */
+.ap { --c: var(--amber); width: min(560px, calc(100vw - 32px)); padding: 0; border: 0; color: #cfd8e6;
+  background: linear-gradient(170deg, #12204d5e, #070c255a); border-top: 5px solid var(--c);
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,.8), 0 0 60px -20px var(--c);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%); overflow: hidden; }
+.ap::backdrop { background: rgba(2,4,15,.78); backdrop-filter: blur(3px); }
+.ap[open] { animation: apIn .35s ease-out; }
+@keyframes apIn { from { opacity: 0; transform: translateY(18px) scale(.97); } }
+.ap-body { position: relative; padding: 38px clamp(22px, 5vw, 38px) 36px; }
+.ap-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; font-size: .88rem; }
+.ap-meta span { padding: 3px 10px; background: var(--amber); color: var(--night); font-weight: 700; }
+.ap h2 { margin: 16px 44px 14px 0; font-size: clamp(1.8rem, 4.6vw, 2.6rem); text-transform: uppercase; }
+.ap-desc { font-size: 1.05rem; color: #dbe3ef; }
+.ap-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.ap-actions .btn span { display: inline-flex; align-items: center; gap: 8px; }

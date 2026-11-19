@@ -29,7 +29,7 @@ export function Hero() {
           <Link href="/about" className="btn btn-line"><span>Explore CircuitX</span></Link>
           {ppt && (
             <a href={ppt} target="_blank" rel="noopener noreferrer" className="btn btn-ppt">
-              <span><Download size={17} aria-hidden="true" />Download official PPT</span>
+              <span><Download size={17} aria-hidden="true" />Official PPT Template</span> 
             </a>
           )}
           
