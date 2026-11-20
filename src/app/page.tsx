@@ -22,6 +22,26 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: "CircuitX'26",
+  description: event.description,
+  startDate: "2026-12-19T17:00:00+05:30",
+  endDate: "2026-12-20T09:00:00+05:30",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  eventStatus: "https://schema.org/EventScheduled",
+  location: {
+    "@type": "Place", name: event.venue.name,
+    address: "BMS Institute of Technology and Management, Bengaluru"
+  },
+  organizer: [{ "@type": "Organization", name: "IEEE PES BMSIT&M" },
+  { "@type": "Organization", name: "IEEE CASS BMSIT&M" }],
+  url: "https://circuitx26.vercel.app",
+  image: "https://circuitx26.vercel.app/og.jpg",
+};
+
+
 const info = [
   { Icon: Clock, k: "16 hours", v: "An overnight build" },
   {
@@ -165,6 +185,7 @@ export default function Home() {
           <RegisterButton />
         </div>
       </section>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </>
   );
 }

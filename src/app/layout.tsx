@@ -23,12 +23,17 @@ export const metadata: Metadata = {
   description: desc,
   openGraph: { title, description: desc, type: "website", siteName: event.name, images: ["/og.jpg"] },
   twitter: { card: "summary_large_image", title, description: desc, images: ["/og.jpg"] },
+  alternates: { canonical: "/" },
+  verification: { google: "_FwoFgqeat2pGOHwSa-s2vKUk00KSFwawqtAQ3n9M64" },
 };
 export const viewport: Viewport = { themeColor: "#04061a", width: "device-width", initialScale: 1 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+      <head>
+        <meta name="google-site-verification" content="_FwoFgqeat2pGOHwSa-s2vKUk00KSFwawqtAQ3n9M64" />
+      </head>
       <body>
         <a href="#main" className="skip">Skip to content</a>
         <Header />
