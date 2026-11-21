@@ -3,10 +3,7 @@ import { Barlow_Condensed, Barlow, IBM_Plex_Mono } from "next/font/google";
 import "../styles/base.css";
 import "../styles/sections.css";
 import "../styles/art.css";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { event } from "@/config/event";
-import { AnnouncementPopup } from "@/components/AnnouncementPopup";
 import { Analytics } from "@vercel/analytics/next";
 
 const display = Barlow_Condensed({ subsets: ["latin"], weight: ["600", "700", "800", "900"], variable: "--font-display", display: "swap" });
@@ -28,6 +25,7 @@ export const metadata: Metadata = {
 };
 export const viewport: Viewport = { themeColor: "#04061a", width: "device-width", initialScale: 1 };
 
+/** Bare root: fonts, global CSS, analytics. Public chrome lives in (site)/layout.tsx, admin chrome in admincircuitx/. */
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
@@ -35,11 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="google-site-verification" content="_FwoFgqeat2pGOHwSa-s2vKUk00KSFwawqtAQ3n9M64" />
       </head>
       <body>
-        <a href="#main" className="skip">Skip to content</a>
-        <Header />
-        <main id="main">{children}</main>
-        <Footer />
-        <AnnouncementPopup />
+        {children}
         <Analytics />
       </body>
     </html>

@@ -36,8 +36,8 @@ export function Footer() {
           <ul>
             <li><Link href={event.venue.mapUrl} target="_blank" rel="noopener noreferrer">Campus Map</Link></li>
             <li><Link href={event.quicklinks.cocurl} target="_blank" rel="noopener noreferrer">Code of Conduct</Link></li>
-            <li><Link href={event.quicklinks.tacurl} target="_blank" rel="noopener noreferrer">Terms & Conditions</Link></li>
-            <li><Link href={event.quicklinks.pncurl} target="_blank" rel="noopener noreferrer">Privacy Notice</Link></li>
+            <li><Link href="/terms">Terms & Conditions</Link></li>
+            <li><Link href="/privacy">Privacy Notice</Link></li>
           </ul>
         </div>
       </div>
