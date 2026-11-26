@@ -2,7 +2,7 @@ import { cache } from "react";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 
-export type Permission = "team.manage" | "admins.manage";
+export type Permission = "team.manage" | "announcements.manage" | "admins.manage";
 export type Admin = { email: string; role: "super_admin" | "admin"; permissions: string[] };
 
 /** One lookup per request: the verified Google user and, if allow-listed, their admin row. */
