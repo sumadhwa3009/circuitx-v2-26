@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ActionForm, SubmitButton } from "@/components/ui/ActionForm";
 import { SessionGuard } from "@/components/auth/SessionGuard";
 import { POLICY } from "@/lib/session-policy";
 import { LayoutDashboard, ListOrdered, LogOut, Megaphone, Menu, Users, X } from "lucide-react";
@@ -52,7 +53,7 @@ export function AdminShell({ nav, email, role, signOutAction, children }: {
         <div className="adm-user">
           <span className="adm-avatar" aria-hidden="true">{email[0]?.toUpperCase()}</span>
           <div><b title={email}>{email}</b><small>{role}</small></div>
-          <form action={signOutAction}><button type="submit" className="adm-icon-btn" aria-label="Sign out" title="Sign out"><LogOut size={19} aria-hidden="true" /></button></form>
+          <ActionForm action={signOutAction}><SubmitButton iconOnly className="adm-icon-btn" aria-label="Sign out" title="Sign out"><LogOut size={19} aria-hidden="true" /></SubmitButton></ActionForm>
         </div>
       </aside>
 

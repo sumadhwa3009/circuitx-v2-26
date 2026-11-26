@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { getSession } from "@/lib/auth/permissions";
 import { GoogleSignInButton } from "@/components/auth/GoogleSignInButton";
 import { signOut } from "./actions";
+import { ActionForm, SubmitButton } from "@/components/ui/ActionForm";
 
 const MESSAGES: Record<string, string> = {
   unauthorized: "This Google account does not have admin access.",
@@ -24,7 +25,7 @@ export default async function AdminLogin({ searchParams }: { searchParams: Promi
         {user ? (
           <>
             <p>Signed in as <b>{user.email}</b>, which is not on the admin list.</p>
-            <form action={signOut}><button className="btn btn-line" type="submit"><span>Use a different account</span></button></form>
+            <ActionForm action={signOut}><SubmitButton className="btn btn-line"><span>Use a different account</span></SubmitButton></ActionForm>
           </>
         ) : (
           <GoogleSignInButton next="/admincircuitx/dashboard" />

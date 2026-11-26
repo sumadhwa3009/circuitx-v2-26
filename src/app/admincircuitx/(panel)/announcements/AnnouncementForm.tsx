@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ANNOUNCEMENT_CATEGORIES } from "@/lib/announcements";
 import { saveAnnouncement } from "./actions";
+import { ActionForm, SubmitButton } from "@/components/ui/ActionForm";
 
 export type AnnouncementRow = {
   id: string; title: string; description: string; category: string; link_url: string | null;
@@ -18,7 +19,7 @@ const ERRORS: Record<string, string> = {
 
 export function AnnouncementForm({ initial, today, error }: { initial?: AnnouncementRow; today: string; error?: string }) {
   return (
-    <form action={saveAnnouncement} className="aform">
+    <ActionForm action={saveAnnouncement} className="aform">
       {error && ERRORS[error] && <p className="aalert" role="alert">{ERRORS[error]}</p>}
       {initial && <input type="hidden" name="id" value={initial.id} />}
 
@@ -49,9 +50,9 @@ export function AnnouncementForm({ initial, today, error }: { initial?: Announce
       <label className="acheck"><input type="checkbox" name="popup" defaultChecked={initial?.show_in_popup ?? false} /><span><b>Show as popup</b><small>The newest published announcement with this ticked opens as a popup for visitors, once per session.</small></span></label>
 
       <div className="aform-actions">
-        <button className="ab ab-pri" type="submit">{initial ? "Save changes" : "Publish announcement"}</button>
+        <SubmitButton className="ab ab-pri" type="submit">{initial ? "Save changes" : "Publish announcement"}</SubmitButton>
         <Link href="/admincircuitx/announcements" className="ab ab-ghost">Cancel</Link>
       </div>
-    </form>
+    </ActionForm>
   );
 }

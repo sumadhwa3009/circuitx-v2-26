@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { requireAdmin } from "@/lib/auth/permissions";
 import { createClient } from "@/lib/supabase/server";
 import { deleteAnnouncement } from "../actions";
+import { ActionForm, SubmitButton } from "@/components/ui/ActionForm";
 import { AnnouncementForm, type AnnouncementRow } from "../AnnouncementForm";
 import "../announcements.css";
 
@@ -24,11 +25,11 @@ export default async function EditAnnouncement({ params, searchParams }: { param
       <AnnouncementForm initial={row} today={row.announced_on} error={error} />
       <details className="adanger">
         <summary>Delete this announcement</summary>
-        <form action={deleteAnnouncement}>
+        <ActionForm action={deleteAnnouncement}>
           <input type="hidden" name="id" value={row.id} />
           <span className="amuted">This removes it permanently. To just hide it, untick Published instead.</span>
-          <button type="submit" className="ab ab-danger ab-sm">Yes, delete it</button>
-        </form>
+          <SubmitButton type="submit" className="ab ab-danger ab-sm">Yes, delete it</SubmitButton>
+        </ActionForm>
       </details>
     </>
   );

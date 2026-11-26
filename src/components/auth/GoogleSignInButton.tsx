@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
+import { Spinner } from "@/components/ui/Spinner";
 
 /** Reused by the admin login and (later) the organisers form / team-member login. */
 export function GoogleSignInButton({ next = "/", label = "Continue with Google" }: { next?: string; label?: string }) {
@@ -17,8 +18,8 @@ export function GoogleSignInButton({ next = "/", label = "Continue with Google" 
     if (error) setBusy(false);
   }
   return (
-    <button type="button" className="btn btn-go" onClick={go} disabled={busy}>
-      <span>{busy ? "Redirecting…" : label}</span>
+    <button type="button" className="btn btn-go" onClick={go} disabled={busy} aria-busy={busy}>
+      <span>{busy && <Spinner />}{busy ? "Redirecting…" : label}</span>
     </button>
   );
 }

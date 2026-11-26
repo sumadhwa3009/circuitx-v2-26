@@ -3,6 +3,7 @@ import { Download, ExternalLink, Linkedin, Mail, Phone } from "lucide-react";
 import { requireAdmin } from "@/lib/auth/permissions";
 import { createClient } from "@/lib/supabase/server";
 import { setDesignation, setFormOpen, setStatus, setVisible } from "./actions";
+import { ActionForm, SubmitButton } from "@/components/ui/ActionForm";
 import "./team.css";
 
 type Row = {
@@ -60,10 +61,10 @@ export default async function TeamManagement({ searchParams }: { searchParams: P
           <p className="amuted">Share this link with your team. Anyone with a Google account can submit while it is open.</p>
           <div className="linkbox"><code>{site}/join-team</code><Link href="/join-team" target="_blank" className="ab ab-ghost ab-sm"><ExternalLink size={15} aria-hidden="true" />Open</Link></div>
         </div>
-        <form action={setFormOpen}>
+        <ActionForm action={setFormOpen}>
           <input type="hidden" name="open" value={String(!open)} />
-          <button className={`ab ${open ? "ab-ghost" : "ab-pri"}`} type="submit">{open ? "Stop accepting responses" : "Start accepting responses"}</button>
-        </form>
+          <SubmitButton className={`ab ${open ? "ab-ghost" : "ab-pri"}`} type="submit">{open ? "Stop accepting responses" : "Start accepting responses"}</SubmitButton>
+        </ActionForm>
       </section>
 
       <div className="adm-ph sub">
@@ -106,18 +107,18 @@ export default async function TeamManagement({ searchParams }: { searchParams: P
                 {m.linkedin_url && <li><Linkedin size={15} aria-hidden="true" /><a href={m.linkedin_url} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>}
               </ul>
 
-              <form action={setDesignation} className="mrole">
+              <ActionForm action={setDesignation} className="mrole">
                 <label className="sr" htmlFor={`role-${m.id}`}>Role of {m.full_name}</label>
                 <input id={`role-${m.id}`} className="ainput" name="designation" list="roles" defaultValue={m.designation} maxLength={40} />
                 <input type="hidden" name="id" value={m.id} />
-                <button type="submit" className="ab ab-ghost ab-sm">Save role</button>
-              </form>
+                <SubmitButton type="submit" className="ab ab-ghost ab-sm">Save role</SubmitButton>
+              </ActionForm>
 
               <div className="mactions">
-                {m.status !== "approved" && <form action={setStatus}><input type="hidden" name="id" value={m.id} /><input type="hidden" name="status" value="approved" /><button className="ab ab-ok ab-sm" type="submit">Approve</button></form>}
-                {m.status !== "rejected" && <form action={setStatus}><input type="hidden" name="id" value={m.id} /><input type="hidden" name="status" value="rejected" /><button className="ab ab-danger ab-sm" type="submit">Reject</button></form>}
-                {m.status !== "pending" && <form action={setStatus}><input type="hidden" name="id" value={m.id} /><input type="hidden" name="status" value="pending" /><button className="ab ab-ghost ab-sm" type="submit">Reset</button></form>}
-                {m.status === "approved" && <form action={setVisible}><input type="hidden" name="id" value={m.id} /><input type="hidden" name="show" value={String(!m.show_on_website)} /><button className="ab ab-ghost ab-sm" type="submit">{m.show_on_website ? "Hide from site" : "Show on site"}</button></form>}
+                {m.status !== "approved" && <ActionForm action={setStatus}><input type="hidden" name="id" value={m.id} /><input type="hidden" name="status" value="approved" /><SubmitButton className="ab ab-ok ab-sm" type="submit">Approve</SubmitButton></ActionForm>}
+                {m.status !== "rejected" && <ActionForm action={setStatus}><input type="hidden" name="id" value={m.id} /><input type="hidden" name="status" value="rejected" /><SubmitButton className="ab ab-danger ab-sm" type="submit">Reject</SubmitButton></ActionForm>}
+                {m.status !== "pending" && <ActionForm action={setStatus}><input type="hidden" name="id" value={m.id} /><input type="hidden" name="status" value="pending" /><SubmitButton className="ab ab-ghost ab-sm" type="submit">Reset</SubmitButton></ActionForm>}
+                {m.status === "approved" && <ActionForm action={setVisible}><input type="hidden" name="id" value={m.id} /><input type="hidden" name="show" value={String(!m.show_on_website)} /><SubmitButton className="ab ab-ghost ab-sm" type="submit">{m.show_on_website ? "Hide from site" : "Show on site"}</SubmitButton></ActionForm>}
               </div>
               {m.status === "approved" && <p className="mvis">{m.show_on_website ? "Visible on the Team page" : "Not shown on the Team page"}</p>}
             </article>

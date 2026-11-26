@@ -1,0 +1,27 @@
+/* spinner: inherits the text colour of whatever it sits in */
+.spin { display: inline-block; flex: none; width: 16px; height: 16px; border-radius: 50%; border: 2px solid currentColor; border-right-color: transparent;
+  vertical-align: -3px; margin-inline-end: 8px; animation: spinr .7s linear infinite; }
+.spin:only-child { margin: 0; }
+.ab .spin, .adm-icon-btn .spin { margin: 0; }
+@keyframes spinr { to { transform: rotate(360deg); } }
+/* a loading indicator must keep moving even for people who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) { .spin { animation-duration: 1.6s !important; animation-iteration-count: infinite !important; } }
+
+button[aria-busy="true"] { cursor: progress; }
+button:disabled[aria-busy="true"] { opacity: .8; }
+
+/* page-level loading (shown while a page is fetching its data) */
+.pg-loading { display: grid; justify-items: center; align-content: center; gap: 14px; min-height: 40vh; color: var(--emerald); font: 500 .85rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; }
+.pg-loading .spin { width: 34px; height: 34px; border-width: 3px; margin: 0; }
+.pg-loading span:last-child { color: var(--steel); }
+.pg-full { min-height: 70vh; }
+
+/* skeleton blocks */
+.sk-wrap { display: grid; gap: 14px; }
+.sk { border-radius: 12px; background: linear-gradient(90deg, rgba(255,255,255,.05), rgba(255,255,255,.11), rgba(255,255,255,.05)); background-size: 200% 100%; animation: skShimmer 1.4s ease-in-out infinite; }
+.sk-title { height: 34px; width: min(320px, 70%); }
+.sk-line { height: 14px; width: min(480px, 90%); }
+.sk-card { height: 110px; }
+@keyframes skShimmer { to { background-position: -200% 0; } }
+
+.jf-proc { display: inline-flex; align-items: center; gap: 8px; color: var(--steel); font-weight: 400; }

@@ -3,6 +3,7 @@ import { Eye, EyeOff, Pencil, Plus } from "lucide-react";
 import { requireAdmin } from "@/lib/auth/permissions";
 import { createClient } from "@/lib/supabase/server";
 import { setPublished } from "./actions";
+import { ActionForm, SubmitButton } from "@/components/ui/ActionForm";
 import type { AnnouncementRow } from "./AnnouncementForm";
 import "./announcements.css";
 
@@ -42,10 +43,10 @@ export default async function Announcements({ searchParams }: { searchParams: Pr
               {a.link_url && <p className="nlink">{a.link_url}</p>}
               <div className="nacts">
                 <Link href={`/admincircuitx/announcements/${a.id}`} className="ab ab-ghost ab-sm"><Pencil size={15} aria-hidden="true" />Edit</Link>
-                <form action={setPublished}>
+                <ActionForm action={setPublished}>
                   <input type="hidden" name="id" value={a.id} /><input type="hidden" name="publish" value={String(!a.is_published)} />
-                  <button className="ab ab-ghost ab-sm" type="submit">{a.is_published ? <><EyeOff size={15} aria-hidden="true" />Unpublish</> : <><Eye size={15} aria-hidden="true" />Publish</>}</button>
-                </form>
+                  <SubmitButton className="ab ab-ghost ab-sm" type="submit">{a.is_published ? <><EyeOff size={15} aria-hidden="true" />Unpublish</> : <><Eye size={15} aria-hidden="true" />Publish</>}</SubmitButton>
+                </ActionForm>
               </div>
             </article>
           ))}

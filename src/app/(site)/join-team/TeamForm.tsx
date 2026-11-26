@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { SOCIETIES, TSHIRT_SIZES } from "@/lib/validation/team";
+import { Spinner } from "@/components/ui/Spinner";
 import { submitTeamForm } from "./actions";
 
 export type Team = { id: string; name: string };
@@ -40,6 +41,7 @@ export function TeamForm({ user, teams, existing, photoUrl }: {
   const [errs, setErrs] = useState<Record<string, string>>({});
   const [fail, setFail] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
+  const [proc, setProc] = useState(false);
   const set = (k: keyof typeof v) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => setV((p) => ({ ...p, [k]: e.target.value }));
 
   async function onPhoto(e: React.ChangeEvent<HTMLInputElement>) {
@@ -47,12 +49,15 @@ export function TeamForm({ user, teams, existing, photoUrl }: {
     if (!f) return;
     setErrs((p) => ({ ...p, photo: "" }));
     if (f.size > 15 * 1024 * 1024) { setErrs((p) => ({ ...p, photo: "That file is too large (max 15 MB)" })); return; }
+    setProc(true);
     try {
       const blob = await resizeToJpeg(f);
       setPhoto(blob);
       setPreview(URL.createObjectURL(blob));
     } catch {
       setErrs((p) => ({ ...p, photo: "Could not read that image. Use a JPG or PNG photo." }));
+    } finally {
+      setProc(false);
     }
   }
 
@@ -111,6 +116,7 @@ export function TeamForm({ user, teams, existing, photoUrl }: {
         <div className="jf-photo">
           {preview && /* eslint-disable-next-line @next/next/no-img-element */ <img src={preview} alt="Your photo preview" />}
           <input type="file" accept="image/jpeg,image/png,image/webp" onChange={onPhoto} />
+          {proc && <span className="jf-proc"><Spinner />Processing photo…</span>}
         </div><E k="photo" />
       </label>
 
@@ -137,7 +143,7 @@ export function TeamForm({ user, teams, existing, photoUrl }: {
 
       {fail && <p className="jf-fail" role="alert">{fail}</p>}
       {saved && <p className="jf-ok" role="status">Saved. Thank you!</p>}
-      <button className="btn btn-go" type="submit" disabled={busy || !v.consent}><span>{busy ? "Saving…" : existing ? "Update my details" : "Submit"}</span></button>
+      <button className="btn btn-go" type="submit" disabled={busy || !v.consent}><span>{busy && <Spinner />}{busy ? "Saving…" : existing ? "Update my details" : "Submit"}</span></button>
     </form>
   );
 }
