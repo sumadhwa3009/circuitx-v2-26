@@ -1,12 +1,12 @@
-import { Instagram, Linkedin, Mail, Phone, Globe } from "lucide-react";
+import { Github, Instagram, Linkedin, Mail, Phone, Globe } from "lucide-react";
 
 type Social = { id: string; label: string; url: string };
 type Org = { id: string; short: string; email?: string };
 
 const socialIcon = (id: string) =>
-  id.includes("instagram") ? Instagram : id.includes("linkedin") ? Linkedin : Globe;
+  id.includes("instagram") ? Instagram : id.includes("linkedin") ? Linkedin : id.includes("github") ? Github : Globe;
 const socialKind = (id: string) =>
-  id.includes("instagram") ? "instagram" : id.includes("linkedin") ? "linkedin" : "web";
+  id.includes("instagram") ? "instagram" : id.includes("linkedin") ? "linkedin" : id.includes("github") ? "github" : "web";
 
 /** Round social icons. Only entries with a url are shown. */
 export function SocialIcons({ items }: { items: readonly Social[] }) {

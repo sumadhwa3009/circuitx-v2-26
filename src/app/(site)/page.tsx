@@ -8,7 +8,7 @@ import { AnnouncementCard } from "@/components/AnnouncementCard";
 import { Terminal } from "@/components/Terminal";
 import { RegisterButton } from "@/components/RegisterButton";
 import { faqs } from "@/data/faqs";
-import { announcements } from "@/data/announcements";
+import { getAnnouncements } from "@/lib/announcements";
 import { Prizes } from "@/components/Prizes";
 import { PartnerLogos } from "@/components/PartnerLogos";
 import { PrizeBackdrop, Gift } from "@/components/PrizeArt";
@@ -21,6 +21,8 @@ import {
   Compass,
   ArrowRight,
 } from "lucide-react";
+
+export const revalidate = 300;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -78,7 +80,8 @@ const goCards = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const announcements = await getAnnouncements();
   return (
     <>
       <Rail />

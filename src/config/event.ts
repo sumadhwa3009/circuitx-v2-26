@@ -68,6 +68,7 @@ export const nav = [
   { href: "/about", label: "About" },
   { href: "/themes", label: "Themes" },
   { href: "/schedule", label: "Schedule" },
+  { href: "/team", label: "Team" },
   { href: "/faq", label: "FAQ & contact" },
 ];
 

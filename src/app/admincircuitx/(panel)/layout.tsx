@@ -1,26 +1,16 @@
-import Link from "next/link";
 import { can, requireAdmin } from "@/lib/auth/permissions";
+import { AdminShell, type NavItem } from "@/components/admin/AdminShell";
 import { signOut } from "../actions";
 
 export default async function PanelLayout({ children }: { children: React.ReactNode }) {
   const admin = await requireAdmin(); // server-side gate for every page in the panel
-  const nav = [
-    { href: "/admincircuitx/dashboard", label: "Overview", show: true },
-    { href: "/admincircuitx/team", label: "Team management", show: can(admin, "team.manage") },
-  ].filter((n) => n.show);
-
+  // One entry per module. Add new modules here as they are built.
+  const nav: NavItem[] = [{ href: "/admincircuitx/dashboard", label: "Overview", icon: "overview" }];
+  if (can(admin, "team.manage")) nav.push({ href: "/admincircuitx/team", label: "Team management", icon: "team" });
+  if (can(admin, "announcements.manage")) nav.push({ href: "/admincircuitx/announcements", label: "Announcements", icon: "announcements" });
   return (
-    <div className="adm-shell">
-      <aside className="adm-side">
-        <p className="adm-eyebrow">CircuitX&apos;26 · Admin</p>
-        <nav aria-label="Admin">{nav.map((n) => <Link key={n.href} href={n.href}>{n.label}</Link>)}</nav>
-        <div className="adm-user">
-          <span>{admin.email}</span>
-          <small>{admin.role === "super_admin" ? "Super admin" : "Admin"}</small>
-          <form action={signOut}><button className="btn btn-line btn-sm" type="submit"><span>Sign out</span></button></form>
-        </div>
-      </aside>
-      <main className="adm-main">{children}</main>
-    </div>
+    <AdminShell nav={nav} email={admin.email} role={admin.role === "super_admin" ? "Super admin" : "Admin"} signOutAction={signOut}>
+      {children}
+    </AdminShell>
   );
 }

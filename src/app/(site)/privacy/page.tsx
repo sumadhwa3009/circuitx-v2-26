@@ -47,7 +47,7 @@ export default function Privacy() {
       <ul>
         <li>To organise CircuitX&apos;26: coordinating the organising team, onboarding participants and managing logistics</li>
         <li>To contact you about the event</li>
-        <li>To show the organising team on the website, only for members the admins have approved. We publish name, photo, team and designation, and a social link only if you provided one.</li>
+        <li>To show the organising team on the website, only for members the admins have approved. We publish name, photo, team, society and designation, and social links only if you provided them.</li>
         <li>To keep the website secure and prevent misuse</li>
       </ul>
       <p>Your phone number, USN and email address are never shown publicly.</p>

@@ -1,0 +1,27 @@
+.join { max-width: 760px; }
+.join-card { padding: 28px clamp(20px, 4vw, 34px); background: linear-gradient(170deg, rgba(255,255,255,.07), rgba(255,255,255,.02)); border-top: 5px solid var(--emerald); display: grid; gap: 18px; justify-items: start; }
+.join-card h2 { font-size: 1.8rem; text-transform: uppercase; }
+.join-note { padding: 10px 14px; border-left: 3px solid var(--amber); background: rgba(255,179,71,.08); color: #e8eef6; }
+.join-user { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; justify-content: space-between; width: 100%; margin-bottom: 18px; color: #fff; }
+.jf { display: grid; gap: 18px; width: 100%; }
+.jf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.jf label { display: grid; gap: 6px; font-weight: 600; color: #fff; }
+.jf label small { font-weight: 400; color: var(--steel); }
+.jf input, .jf select { min-height: 46px; padding: 0 12px; border: 1.5px solid rgba(255,255,255,.28); background: rgba(4,6,26,.7); color: #fff; font: inherit; }
+.jf input:focus, .jf select:focus { outline: 2px solid var(--amber); outline-offset: 1px; }
+.jf input[readonly] { opacity: .7; cursor: not-allowed; }
+.jf input[type="file"] { padding: 9px 12px; }
+.jf .err { color: #ff9b80; font-size: .9rem; font-weight: 400; }
+.jf .opt-h { margin-top: 8px; font: 500 .8rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--emerald); }
+.jf .consent { display: flex; align-items: flex-start; gap: 10px; font-weight: 400; color: #e8eef6; }
+.jf .consent input { min-height: 0; width: 20px; height: 20px; margin-top: 3px; }
+.jf .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.jf-photo { display: flex; align-items: center; gap: 16px; }
+.jf-photo img { width: 84px; height: 84px; object-fit: cover; border: 2px solid var(--emerald); }
+.jf-ok { padding: 10px 14px; border-left: 3px solid var(--emerald); background: rgba(25,230,140,.1); color: #d6ffe9; }
+.jf-fail { padding: 10px 14px; border-left: 3px solid var(--ember); background: rgba(255,90,44,.1); color: #ffd2c4; }
+.join-sum { display: grid; gap: 6px; }
+.join-sum b { color: #fff; }
+.pill { display: inline-block; padding: 3px 10px; font: 700 .8rem/1.2 var(--f-mono); text-transform: uppercase; background: var(--amber); color: var(--night); }
+.pill.approved { background: var(--emerald); } .pill.rejected { background: var(--ember); color: #fff; }
+@media (max-width: 640px) { .jf-row { grid-template-columns: 1fr; } }

@@ -1,0 +1,60 @@
+/* ---------- Team page ---------- */
+.tp-jump { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 900px; margin: 0 auto 64px; }
+.tp-jump a { padding: 8px 16px; border-radius: 999px; font: 600 .8rem/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase;
+  color: #fff; background: rgba(255,255,255,.06); box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.22); transition: background .25s, box-shadow .25s, color .25s, transform .25s; }
+.tp-jump a:hover, .tp-jump a:focus-visible { background: rgba(25,230,140,.16); box-shadow: inset 0 0 0 1.5px var(--emerald); color: var(--emerald); transform: translateY(-2px); }
+
+.tp-group { margin-top: 84px; scroll-margin-top: 90px; }
+.tp-group:first-of-type { margin-top: 0; }
+.tp-head { display: grid; justify-items: center; gap: 10px; margin-bottom: 44px; text-align: center; }
+.tp-head h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); text-transform: uppercase; color: #fff; }
+.tp-head span { font: 500 .8rem/1 var(--f-mono); letter-spacing: .2em; text-transform: uppercase; color: var(--emerald); }
+.tp-head::after { content: ""; width: 120px; height: 3px; margin-top: 4px; border-radius: 3px; background: linear-gradient(90deg, transparent, var(--amber), var(--emerald), transparent); }
+
+.tp-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 34px 28px; }
+
+.tcard { position: relative; isolation: isolate; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px;
+  flex: 0 1 236px; width: 236px; max-width: 100%; padding: 30px 20px 26px;
+  animation: tpIn .6s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 70ms);
+  transition: transform .35s cubic-bezier(.2,.7,.2,1); }
+.tcard::before { content: ""; position: absolute; inset: 0; z-index: -1;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 26px), calc(100% - 26px) 100%, 0 100%);
+  background: linear-gradient(170deg, rgba(255,255,255,.1), rgba(255,255,255,.02)); box-shadow: inset 0 2px 0 var(--emerald);
+  transition: background .35s; }
+.tcard::after { content: ""; position: absolute; inset: auto 14% -8px; height: 24px; z-index: -2; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(25,230,140,.35), transparent); opacity: 0; transition: opacity .35s; }
+.tcard:hover { transform: translateY(-8px); }
+.tcard:hover::before { background: linear-gradient(170deg, rgba(255,255,255,.16), rgba(255,255,255,.04)); }
+.tcard:hover::after { opacity: 1; }
+
+/* circular photo with a slowly turning gradient ring */
+.tcard-photo { position: relative; width: 168px; aspect-ratio: 1; margin-bottom: 8px; border-radius: 50%;
+  filter: drop-shadow(0 8px 22px rgba(25,230,140,.28)); }
+.tcard-photo::before { content: ""; position: absolute; inset: 0; border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--emerald), #8bf5c1, var(--amber), var(--ember), var(--amber), var(--emerald));
+  animation: spin-slow 9s linear infinite; }
+.tcard-photo img, .tcard-photo span { position: absolute; inset: 5px; width: calc(100% - 10px); height: calc(100% - 10px); border-radius: 50%;
+  border: 4px solid #070d27; object-fit: cover; background: #0d1a45; }
+.tcard-photo span { display: grid; place-items: center; font: 800 3.2rem/1 var(--f-display); color: var(--steel); }
+.tcard:hover .tcard-photo::before { animation-duration: 3s; }
+
+.tcard h3 { font-size: 1.65rem; text-transform: uppercase; line-height: 1.05; letter-spacing: .01em; }
+.tcard-role { font: 600 .78rem/1.2 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--amber); }
+.tcard-soc { padding: 5px 14px; border-radius: 999px; font: 700 .72rem/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; border: 1.5px solid currentColor; }
+.tcard-soc.pes { color: var(--amber); background: rgba(255,179,71,.12); }
+.tcard-soc.cas { color: var(--emerald); background: rgba(25,230,140,.12); }
+.tcard .ic-row { justify-content: center; margin-top: 8px; gap: 10px; }
+.tcard .ic { width: 38px; height: 38px; }
+.ic[data-k="github"] { --c: #d0d7de; }
+
+/* chairperson / heads: a little larger, amber ring */
+.tcard.lead { flex-basis: 260px; width: 260px; }
+.tcard.lead .tcard-photo { width: 190px; filter: drop-shadow(0 8px 26px rgba(255,179,71,.4)); }
+.tcard.lead .tcard-photo::before { background: conic-gradient(from 0deg, var(--amber), #fff0b0, var(--ember), var(--amber), #ffd890, var(--amber)); }
+.tcard.lead::before { box-shadow: inset 0 2px 0 var(--amber); }
+
+.tp-empty { max-width: 560px; margin: 0 auto; padding: 22px 24px; border-left: 4px solid var(--amber); background: rgba(255,179,71,.08); color: #e8eef6; text-align: center; border-left-width: 0; border-top: 4px solid var(--amber); }
+
+@keyframes tpIn { from { opacity: 0; transform: translateY(22px); } }
+@media (prefers-reduced-motion: reduce) { .tcard-photo::before { animation: none; } }
+@media (max-width: 520px) { .tp-grid { gap: 28px 16px; } .tcard, .tcard.lead { flex-basis: min(300px, 100%); width: min(300px, 100%); } }

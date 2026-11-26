@@ -2,12 +2,11 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, X } from "lucide-react";
-import { announcements } from "@/data/announcements";
+import type { Announcement } from "@/lib/announcements";
 
 const KEY = "cx-popup-seen";
 
-export function AnnouncementPopup() {
-  const a = announcements[0];
+export function AnnouncementPopup({ a }: { a: Announcement | null }) {
   const [open, setOpen] = useState(false);
   const dlg = useRef<HTMLDialogElement>(null);
 

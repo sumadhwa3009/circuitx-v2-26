@@ -15,10 +15,11 @@ export default async function AdminLogin({ searchParams }: { searchParams: Promi
 
   return (
     <section className="adm-login">
-      <div className="adm-card">
-        <p className="adm-eyebrow">CircuitX&apos;26</p>
-        <h1>Admin</h1>
-        {error && MESSAGES[error] && <p className="adm-error" role="alert">{MESSAGES[error]}</p>}
+      <div className="acard login-card">
+        <span className="adm-brand"><i aria-hidden="true">CX</i><span>CircuitX&apos;26<small>Admin</small></span></span>
+        <h1>Sign in</h1>
+        <p className="amuted">Organisers only. Use the Google account that was given admin access.</p>
+        {error && MESSAGES[error] && <p className="aalert" role="alert">{MESSAGES[error]}</p>}
         {user ? (
           <>
             <p>Signed in as <b>{user.email}</b>, which is not on the admin list.</p>

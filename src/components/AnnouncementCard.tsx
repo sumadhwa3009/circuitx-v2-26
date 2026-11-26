@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Announcement } from "@/data/announcements";
+import type { Announcement } from "@/lib/announcements";
 
 export function AnnouncementCard({ a }: { a: Announcement }) {
   const date = new Date(a.date).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric", timeZone: "Asia/Kolkata" });

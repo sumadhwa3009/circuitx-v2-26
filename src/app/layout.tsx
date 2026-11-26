@@ -25,7 +25,6 @@ export const metadata: Metadata = {
 };
 export const viewport: Viewport = { themeColor: "#04061a", width: "device-width", initialScale: 1 };
 
-/** Bare root: fonts, global CSS, analytics. Public chrome lives in (site)/layout.tsx, admin chrome in admincircuitx/. */
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
