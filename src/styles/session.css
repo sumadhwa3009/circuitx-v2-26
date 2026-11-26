@@ -1,0 +1,6 @@
+.sg-overlay { position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center; padding: 16px; background: rgba(2,4,15,.78); backdrop-filter: blur(4px); }
+.sg-card { width: min(420px, 100%); display: grid; gap: 14px; padding: 28px 26px; color: #cfd8e6;
+  background: linear-gradient(170deg, #12204d, #070c25); border-top: 5px solid var(--amber); box-shadow: 0 30px 80px -20px rgba(0,0,0,.8); }
+.sg-card h2 { margin: 0; font-size: 1.8rem; text-transform: uppercase; color: #fff; }
+.sg-card b { color: var(--amber); font-variant-numeric: tabular-nums; }
+.sg-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }

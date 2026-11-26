@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { SessionGuard } from "@/components/auth/SessionGuard";
+import { POLICY } from "@/lib/session-policy";
 import { LayoutDashboard, ListOrdered, LogOut, Megaphone, Menu, Users, X } from "lucide-react";
 
 const ICONS = { overview: LayoutDashboard, team: Users, teams: ListOrdered, announcements: Megaphone } as const;
@@ -27,6 +29,7 @@ export function AdminShell({ nav, email, role, signOutAction, children }: {
 
   return (
     <div className="adm-shell">
+      <SessionGuard idleMs={POLICY.admin.idleMs} loginPath="/admincircuitx" area="admin" />
       <header className="adm-top">
         <button type="button" className="adm-icon-btn" aria-label="Open menu" aria-expanded={open} aria-controls="adm-side" onClick={() => setOpen(true)}><Menu size={22} aria-hidden="true" /></button>
         {brand}

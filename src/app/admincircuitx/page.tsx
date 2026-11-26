@@ -8,8 +8,8 @@ const MESSAGES: Record<string, string> = {
   auth: "Sign-in failed. Please try again.",
 };
 
-export default async function AdminLogin({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
-  const { error } = await searchParams;
+export default async function AdminLogin({ searchParams }: { searchParams: Promise<{ error?: string; reason?: string }> }) {
+  const { error, reason } = await searchParams;
   const { user, admin } = await getSession();
   if (admin) redirect("/admincircuitx/dashboard");
 
@@ -19,6 +19,7 @@ export default async function AdminLogin({ searchParams }: { searchParams: Promi
         <span className="adm-brand"><i aria-hidden="true">CX</i><span>CircuitX&apos;26<small>Admin</small></span></span>
         <h1>Sign in</h1>
         <p className="amuted">Organisers only. Use the Google account that was given admin access.</p>
+        {reason === "timeout" && <p className="aalert ok" role="status">You were signed out after a period of inactivity. Please sign in again.</p>}
         {error && MESSAGES[error] && <p className="aalert" role="alert">{MESSAGES[error]}</p>}
         {user ? (
           <>

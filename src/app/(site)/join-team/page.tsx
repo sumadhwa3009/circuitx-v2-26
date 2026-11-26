@@ -2,13 +2,16 @@ import type { Metadata } from "next";
 import { PageBanner } from "@/components/PageBanner";
 import { GoogleSignInButton } from "@/components/auth/GoogleSignInButton";
 import { createClient } from "@/lib/supabase/server";
+import { SessionGuard } from "@/components/auth/SessionGuard";
+import { POLICY } from "@/lib/session-policy";
 import { TeamForm } from "./TeamForm";
 import { SignOutButton } from "./SignOutButton";
 import "./join.css";
 
 export const metadata: Metadata = { title: "Organisers form", robots: { index: false, follow: false } };
 
-export default async function JoinTeam() {
+export default async function JoinTeam({ searchParams }: { searchParams: Promise<{ reason?: string }> }) {
+  const { reason } = await searchParams;
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
@@ -39,6 +42,7 @@ export default async function JoinTeam() {
       <section className="sec">
         <div className="wrap join">
           <div className="join-card">
+            {reason === "timeout" && <p className="join-note">You were signed out after a period of inactivity. Please sign in again.</p>}
             {!user && !open && <><h2>Not accepting responses</h2><p>{settings?.closed_message ?? "The organisers form is not accepting responses right now."}</p></>}
             {!user && open && (
               <>
@@ -49,6 +53,7 @@ export default async function JoinTeam() {
             )}
             {user && (
               <>
+                <SessionGuard idleMs={POLICY.member.idleMs} loginPath="/join-team" area="member" />
                 <div className="join-user"><span>Signed in as <b>{user.email}</b></span><SignOutButton /></div>
                 {canEdit ? (
                   <TeamForm user={{ id: user.id, email: user.email ?? "", name }} teams={teams ?? []} existing={existing} photoUrl={photoUrl} />
