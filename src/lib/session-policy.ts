@@ -5,7 +5,7 @@
  * No imports on purpose: used by the proxy (server) and the browser guard.
  */
 export const POLICY = {
-  admin: { idleMs: 2 * 60 * 1000, maxMs: 1 * 60 * 60 * 1000 },  // admin dashboard: 20 min idle, 1 h max
+  admin: { idleMs: 30 * 60 * 1000, maxMs: 1 * 60 * 60 * 1000 },  // admin dashboard: 30 min idle, 1 h max
   member: { idleMs: 10 * 60 * 1000, maxMs: 30 * 60 * 1000 }, // organisers form: 10 min idle, 30 min max
 } as const;
 

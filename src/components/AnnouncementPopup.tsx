@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowRight, X } from "lucide-react";
 import type { Announcement } from "@/lib/announcements";
 
@@ -9,27 +10,33 @@ const KEY = "cx-popup-seen";
 export function AnnouncementPopup({ a }: { a: Announcement | null }) {
   const [open, setOpen] = useState(false);
   const dlg = useRef<HTMLDialogElement>(null);
+  const pathname = usePathname();
+  const isJoinTeam = pathname === "/join-team";
 
   // show once per session, a moment after load
   useEffect(() => {
-    if (!a) return;
+    if (!a || isJoinTeam) return;
     let seen: string | null = null;
     try { seen = sessionStorage.getItem(KEY); } catch {}
     if (seen === a.id) return;
     const t = setTimeout(() => setOpen(true), 1200);
     return () => clearTimeout(t);
-  }, [a]);
+  }, [a, isJoinTeam]);
 
   useEffect(() => {
     const d = dlg.current;
+    document.body.classList.toggle("lock", open && !isJoinTeam);
+    if (isJoinTeam) {
+      if (d?.open) d.close();
+      return () => document.body.classList.remove("lock");
+    }
     if (!d) return;
     if (open && !d.open) d.showModal();
     if (!open && d.open) d.close();
-    document.body.classList.toggle("lock", open);
     return () => document.body.classList.remove("lock");
-  }, [open]);
+  }, [open, isJoinTeam]);
 
-  if (!a) return null;
+  if (!a || isJoinTeam) return null;
 
   const close = () => {
     try { sessionStorage.setItem(KEY, a.id); } catch {}
