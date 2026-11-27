@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, CalendarDays, MapPin, Megaphone, Users } from "lucide-react";
+import { ArrowRight, CalendarDays, MapPin, Megaphone, ShieldCheck, Users } from "lucide-react";
+import { AdminLogo } from "@/components/admin/AdminLogo";
 import { can, requireAdmin } from "@/lib/auth/permissions";
 import { event } from "@/config/event";
 
@@ -23,16 +24,17 @@ export default async function Dashboard({ searchParams }: { searchParams: Promis
   const modules = [
     { href: "/admincircuitx/team", title: "Team management", desc: "Organiser submissions, the organisers form and team categories", Icon: Users, show: can(admin, "team.manage") },
     { href: "/admincircuitx/announcements", title: "Announcements", desc: "Publish updates shown on the home page and as a popup", Icon: Megaphone, show: can(admin, "announcements.manage") },
+    { href: "/admincircuitx/admins", title: "Admins", desc: "Choose who can sign in and which modules they manage", Icon: ShieldCheck, show: admin.role === "super_admin" },
   ].filter((m) => m.show);
 
   return (
     <>
-      <div className="adm-ph"><div><h1>Overview</h1><p className="amuted">{event.name} hackathon management portal</p></div></div>
+      <div className="adm-ph"><div><h1>Overview</h1><p className="amuted">Hackathon management portal</p></div></div>
       {error === "forbidden" && <p className="aalert" role="alert">You don&apos;t have permission for that section.</p>}
 
       <section className="acard evcard">
         <div className="evinfo">
-          <h2>{event.name}</h2>
+          <AdminLogo size="md" />
           <p><CalendarDays size={16} aria-hidden="true" />{event.dates.label}</p>
           <p><MapPin size={16} aria-hidden="true" />{event.venue.name}, {event.institutionShort}</p>
         </div>

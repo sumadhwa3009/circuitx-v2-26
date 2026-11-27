@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { getSession } from "@/lib/auth/permissions";
 import { GoogleSignInButton } from "@/components/auth/GoogleSignInButton";
+import { AdminLogo } from "@/components/admin/AdminLogo";
 import { signOut } from "./actions";
 import { ActionForm, SubmitButton } from "@/components/ui/ActionForm";
 
@@ -17,8 +18,8 @@ export default async function AdminLogin({ searchParams }: { searchParams: Promi
   return (
     <section className="adm-login">
       <div className="acard login-card">
-        <span className="adm-brand"><i aria-hidden="true">CX</i><span>CircuitX&apos;26<small>Admin</small></span></span>
-        <h1>Sign in</h1>
+        <span className="adm-brand"><AdminLogo size="md" priority /></span>
+        <h1>Admin sign in</h1>
         <p className="amuted">Organisers only. Use the Google account that was given admin access.</p>
         {reason === "timeout" && <p className="aalert ok" role="status">You were signed out after a period of inactivity. Please sign in again.</p>}
         {error && MESSAGES[error] && <p className="aalert" role="alert">{MESSAGES[error]}</p>}
