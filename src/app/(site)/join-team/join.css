@@ -25,3 +25,15 @@
 .pill { display: inline-block; padding: 3px 10px; font: 700 .8rem/1.2 var(--f-mono); text-transform: uppercase; background: var(--amber); color: var(--night); }
 .pill.approved { background: var(--emerald); } .pill.rejected { background: var(--ember); color: #fff; }
 @media (max-width: 640px) { .jf-row { grid-template-columns: 1fr; } }
+
+.jf-photo img { border-radius: 50%; }
+.crop-overlay { position: fixed; inset: 0; z-index: 9000; display: grid; place-items: center; padding: 16px; background: rgba(2,4,15,.82); backdrop-filter: blur(4px); }
+.crop-card { width: min(380px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; display: grid; justify-items: center; gap: 14px; padding: 26px 22px;
+  color: #cfd8e6; background: linear-gradient(170deg, #12204d, #070c25); border-top: 5px solid var(--emerald); box-shadow: 0 30px 80px -20px rgba(0,0,0,.8); }
+.crop-card h2 { font-size: 1.7rem; text-transform: uppercase; }
+.crop-hint { text-align: center; font-size: .92rem; }
+.crop-canvas { max-width: 100%; touch-action: none; cursor: grab; border-radius: 12px; background: #050a20; }
+.crop-canvas:active { cursor: grabbing; }
+.crop-zoom { display: grid; gap: 6px; width: 100%; font-weight: 600; color: #fff; }
+.crop-zoom input { width: 100%; accent-color: #19e68c; }
+.crop-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }

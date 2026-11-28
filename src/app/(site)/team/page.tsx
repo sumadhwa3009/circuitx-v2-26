@@ -68,7 +68,7 @@ export default async function Team() {
                     {g.members.map((p, i) => {
                       const url = urls[p.photo_path];
                       return (
-                        <article className={`tcard${rank(p.designation) <= 1 ? " lead" : ""}`} key={p.id} style={{ "--i": i } as CSSProperties}>
+                        <article className={`tcard${rank(p.designation) <= 1 ? " is-lead" : ""}`} key={p.id} style={{ "--i": i } as CSSProperties}>
                           <div className="tcard-photo">
                             {url ? /* eslint-disable-next-line @next/next/no-img-element */ <img src={url} alt={p.full_name} loading="lazy" /> : <span aria-hidden="true">{initials(p.full_name)}</span>}
                           </div>
